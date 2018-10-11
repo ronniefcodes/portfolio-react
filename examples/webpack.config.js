@@ -15,9 +15,7 @@ module.exports = Object.assign({}, config, {
 
   entry: path.join(__dirname, 'app'),
 
-  optimization: {
-    minimize: false
-  },
+  mode: 'development',
 
   plugins: [
     new HtmlWebpackPlugin({

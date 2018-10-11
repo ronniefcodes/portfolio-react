@@ -11,6 +11,9 @@ const CarouselBackground = styledComponents.div`
   height: 100%;
   width: 100%;
   background-image: ${({ backgroundImage, }) => `url(${backgroundImage})`};
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
   filter: brightness(120%) contrast(80%) opacity(50%) saturate(75%);
 `;
 
