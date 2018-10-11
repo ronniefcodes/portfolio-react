@@ -29,8 +29,14 @@ const CarouselNavButton = styledComponents(Button)`
     right: 0;
   }
 
-  ${media.min.desktop`
-    top: 50%;
+  ${media.min.tablet`
+    &.carousel-nav-button--back {
+      left: 2%;
+    }
+
+    &.carousel-nav-button--next {
+      right: 2%;
+    }
   `}
 `;
 
@@ -111,14 +117,10 @@ class Carousel extends Component {
         >
           <i className="material-icons">arrow_forward_ios</i>
         </CarouselNavButton>
-        {carouselItems.map((carouselItem, i) =>
-          i === currentIndex && (
-            <CarouselItem
-              onClick={this.handleCarouselOnClick}
-              {...carouselItem}
-            />
-          )
-        )}
+        <CarouselItem
+          onClick={this.handleCarouselOnClick}
+          {...carouselItems[currentIndex]}
+        />
       </CarouselContainer>
     );
   }

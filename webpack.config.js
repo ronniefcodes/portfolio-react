@@ -11,6 +11,8 @@ module.exports = {
     publicPath: '/'
   },
 
+  mode: 'production',
+
   module: {
     rules: [
       {
@@ -27,7 +29,7 @@ module.exports = {
   },
 
   resolve: {
-    alias: {      
+    alias: {
       Components: path.resolve(__dirname, './src/components'),
       Theme: path.resolve(__dirname, './src/theme'),
       Utils: path.resolve(__dirname, './src/utils'),

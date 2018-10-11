@@ -19,21 +19,20 @@ const AppContainer = styledComponents.div`
   color: ${colours.black};
 
   ${Header} {
-    height: 25vh;
     width: 100%;
     position: absolute;
     bottom: 0;
-    padding: 0.5em 0;
-    z-index: ${vLayers.top};
+    padding: 0.5em 0 2.5em;
+    z-index: ${vLayers.middle};
 
-    ${media.min.tablet`
+    ${media.min.desktop`
       height: auto;
       width: auto;
-      right: 0;
+      right: 15%;
       top: 50%;
       bottom: auto;
       transform: translateY(-50%);
-      transition: 0.5s all;
+      margin-bottom: 0.5em;
     `}
   }
 `;
@@ -43,16 +42,16 @@ class App extends Component {
   render() {
     const carouselItems = [{
       body: 'Carousel Item A',
-      backgroundImage: 'https://picsum.photos/480/800',
+      backgroundImage: 'https://picsum.photos/300',
     }, {
       body: 'Carousel Item B',
-      backgroundImage: 'https://picsum.photos/480/800?2',
+      backgroundImage: 'https://picsum.photos/300?2',
     }, {
       body: 'Carousel Item C',
-      backgroundImage: 'https://picsum.photos/480/800?3',
+      backgroundImage: 'https://picsum.photos/300?3',
     }, {
       body: 'Carousel Item D',
-      backgroundImage: 'https://picsum.photos/480/800?4',
+      backgroundImage: 'https://picsum.photos/300?4',
     }];
 
     return (
