@@ -1,6 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, } from 'react';
 import styledComponents from 'styled-components';
-import media from '../../utils/media';
+import colours from 'Theme/colours';
+import media from 'Utils/media';
+
+import ContactInformation from 'Components/ContactInformation';
+import Header from 'Components/Header';
 
 const AppContainer = styledComponents.div`
   position: relative;
@@ -10,12 +14,38 @@ const AppContainer = styledComponents.div`
   margin: 0;
   padding: 0;
   overflow: auto;
+  color: ${colours.black};
+
+  ${Header} {
+    height: 25vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 0.5em 0;
+
+    ${media.min.tablet`
+      height: auto;
+      width: auto;
+      right: 0;
+      top: 50%;
+      bottom: auto;
+      transform: translateY(-50%);
+      transition: 0.5s all;
+    `}
+  }
 `;
+
 
 class App extends Component {
   render() {
     return (
-      <AppContainer />
+      <AppContainer>
+        <Header>
+          <h1>Lorem Ipsum</h1>
+          <p>... and other placeholder copy.</p>
+          <ContactInformation />
+        </Header>
+      </AppContainer>
     );
   };
 };
