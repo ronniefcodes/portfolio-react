@@ -3,6 +3,7 @@ import styledComponents from 'styled-components';
 import colours from 'Theme/colours';
 import media from 'Utils/media';
 
+import Carousel from 'Components/Carousel';
 import ContactInformation from 'Components/ContactInformation';
 import Header from 'Components/Header';
 
@@ -38,6 +39,16 @@ const AppContainer = styledComponents.div`
 
 class App extends Component {
   render() {
+    const carouselItems = [{
+      body: 'A',
+    }, {
+      body: 'B',
+    }, {
+      body: 'C',
+    }, {
+      body: 'D',
+    }];
+
     return (
       <AppContainer>
         <Header>
@@ -45,6 +56,7 @@ class App extends Component {
           <p>... and other placeholder copy.</p>
           <ContactInformation />
         </Header>
+        <Carousel carouselItems={carouselItems} />
       </AppContainer>
     );
   };
