@@ -9,12 +9,11 @@ const AppContainer = styledComponents.div`
   width: 100%;
   margin: 0;
   padding: 0;
+  overflow: auto;
 `;
 
 class App extends Component {
   render() {
-    console.log(media.max);
-    window.media = media;
     return (
       <AppContainer />
     );
