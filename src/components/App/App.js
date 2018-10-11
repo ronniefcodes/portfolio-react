@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styledComponents from 'styled-components';
+import media from '../../utils/media';
 
 const AppContainer = styledComponents.div`
   position: relative;
@@ -12,6 +13,8 @@ const AppContainer = styledComponents.div`
 
 class App extends Component {
   render() {
+    console.log(media.max);
+    window.media = media;
     return (
       <AppContainer />
     );
