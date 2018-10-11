@@ -2,6 +2,7 @@ import React, { Component, } from 'react';
 import styledComponents from 'styled-components';
 import colours from 'Theme/colours';
 import media from 'Utils/media';
+import vLayers from 'Utils/vLayers';
 
 import Carousel from 'Components/Carousel';
 import ContactInformation from 'Components/ContactInformation';
@@ -23,6 +24,7 @@ const AppContainer = styledComponents.div`
     position: absolute;
     bottom: 0;
     padding: 0.5em 0;
+    z-index: ${vLayers.top};
 
     ${media.min.tablet`
       height: auto;
@@ -40,13 +42,17 @@ const AppContainer = styledComponents.div`
 class App extends Component {
   render() {
     const carouselItems = [{
-      body: 'A',
+      body: 'Carousel Item A',
+      backgroundImage: 'https://picsum.photos/480/800',
     }, {
-      body: 'B',
+      body: 'Carousel Item B',
+      backgroundImage: 'https://picsum.photos/480/800?2',
     }, {
-      body: 'C',
+      body: 'Carousel Item C',
+      backgroundImage: 'https://picsum.photos/480/800?3',
     }, {
-      body: 'D',
+      body: 'Carousel Item D',
+      backgroundImage: 'https://picsum.photos/480/800?4',
     }];
 
     return (

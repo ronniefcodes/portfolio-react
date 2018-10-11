@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import styledComponents from 'styled-components';
 import 'Theme/icons';
 import media from 'Utils/media';
+import vLayers from 'Utils/vLayers';
 
+import Button from 'Components/Button';
 import CarouselItem from 'Components/CarouselItem';
 
 const CarouselContainer = styledComponents.div`
@@ -11,11 +13,13 @@ const CarouselContainer = styledComponents.div`
   height: 100%;
 `;
 
-const CarouselNavButton = styledComponents.button`
+const CarouselNavButton = styledComponents(Button)`
   position: absolute;
-  margin: .5em;
   top: 50%;
   transform: translateY(-50%);
+  margin: .5em;
+  padding: .5em;
+  z-index: ${vLayers.top};
 
   &.carousel-nav-button--back {
     left: 0;
@@ -28,17 +32,6 @@ const CarouselNavButton = styledComponents.button`
   ${media.min.desktop`
     top: 50%;
   `}
-`;
-
-const CarouselItemContainer = styledComponents.div`
-  position: static;
-`;
-
-const CarouselItemContent = styledComponents.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 `;
 
 class Carousel extends Component {
@@ -62,6 +55,17 @@ class Carousel extends Component {
         currentIndex: 0,
       };
     }
+  }
+
+  handleCarouselOnClick() {
+    const {
+      carouselItems,
+      onCarouselClick,
+    } = this.props;
+    const { currentIndex, } = this.state;
+
+    // if onClick handler has been provided, call it with the current carousel item
+    if (onCarouselClick) this.props.onCarouselClick(carouselItems[currentIndex]);
   }
 
   handleCarouselNext() {
@@ -94,12 +98,14 @@ class Carousel extends Component {
     return (
       <CarouselContainer>
         <CarouselNavButton
+          type="button"
           className="carousel-nav-button--back"
           onClick={this.onCarouselBackClick}
         >
           <i className="material-icons">arrow_back_ios</i>
         </CarouselNavButton>
         <CarouselNavButton
+          type="button"
           className="carousel-nav-button--next"
           onClick={this.onCarouselNextClick}
         >
@@ -107,9 +113,10 @@ class Carousel extends Component {
         </CarouselNavButton>
         {carouselItems.map((carouselItem, i) =>
           i === currentIndex && (
-            <CarouselItem>
-              <CarouselItemContent>{carouselItem.body}</CarouselItemContent>
-            </CarouselItem>
+            <CarouselItem
+              onClick={this.handleCarouselOnClick}
+              {...carouselItem}
+            />
           )
         )}
       </CarouselContainer>
