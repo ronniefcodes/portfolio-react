@@ -1,5 +1,7 @@
 const config = {
-  backgroundImage: '/media/background--plain.jpg',
+  backgroundImages: {
+    mobile: '/media/background--plain.jpg',
+  },
   carouselItems: [{
     backgroundImages: {
       mobile: '/media/splash-mobile--1.jpg',
@@ -26,7 +28,7 @@ const config = {
     type: 'email',
     value: '#',
   }, {
-    name: 'Phone Number',
+    name: 'Phone',
     type: 'phone',
     value: '#',
   }, {

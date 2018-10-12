@@ -29,7 +29,10 @@ class ContactInformation extends Component {
     return (
       <ContactInformationContainer>
         {contactMethods && contactMethods.map((contactMethod, i) => (
-          <Link key={`contactMethod-${i}`} href={parseContactMethodUrl(contactMethod)}>{contactMethod.name}</Link>
+          <Link
+            key={`contactMethod-${i}`}
+            href={parseContactMethodUrl(contactMethod)}
+            aria-label={contactMethod.ariaLabel}>{contactMethod.name}</Link>
         ))}
       </ContactInformationContainer>
     )

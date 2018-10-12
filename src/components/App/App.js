@@ -19,7 +19,13 @@ const AppContainer = styledComponents.div`
   padding: 0;
   overflow: auto;
   color: ${colours.black};
-  background: ${({ backgroundImage, }) => `url(${backgroundImage})`};
+  background: ${({ backgroundImages, }) => `url(${backgroundImages.mobile})`};
+
+  ${media.min.tablet`
+    background: ${({ backgroundImages, }) => backgroundImages.tablet ? `url(${backgroundImages.tablet})` : null};
+  `}${media.min.desktop`
+    background: ${({ backgroundImages, }) => backgroundImages.desktop ? `url(${backgroundImages.desktop})` : null};
+  `}
 `;
 
 const HeaderContainer = styledComponents.div`
@@ -43,7 +49,7 @@ const HeaderContainer = styledComponents.div`
 class App extends Component {
   render() {
     const {
-      backgroundImage,
+      backgroundImages,
       carouselItems,
       contactMethods,
       subTitle,
@@ -51,10 +57,12 @@ class App extends Component {
     } = this.props;
 
     return (
-      <AppContainer backgroundImage={backgroundImage}>
+      <AppContainer backgroundImages={backgroundImages}>
         <HeaderContainer>
           <Header>{title}</Header>
-          {subTitle && (<Subheader>{subTitle}</Subheader>)}
+          {subTitle && (
+            <Subheader>{subTitle}</Subheader>
+          )}
           <ContactInformation  contactMethods={contactMethods}/>
         </HeaderContainer>
         <Carousel carouselItems={carouselItems} />
@@ -64,7 +72,7 @@ class App extends Component {
 };
 
 App.propTypes = {
-  backgroundImage: PropTypes.string,
+  backgroundImages: PropTypes.string,
   carouselItems: PropTypes.arrayOf(PropTypes.object),
   contactMethods: PropTypes.arrayOf(PropTypes.object),
   subTitle: PropTypes.string,
