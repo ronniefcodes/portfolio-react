@@ -1,4 +1,5 @@
 import React, { Component, } from 'react';
+import PropTypes from 'prop-types';
 import styledComponents from 'styled-components';
 import colours from 'Theme/colours';
 import media from 'Utils/media';
@@ -7,6 +8,7 @@ import vLayers from 'Utils/vLayers';
 import Carousel from 'Components/Carousel';
 import ContactInformation from 'Components/ContactInformation';
 import Header from 'Components/Header';
+import Subheader from 'Components/Subheader';
 
 const AppContainer = styledComponents.div`
   position: relative;
@@ -17,54 +19,56 @@ const AppContainer = styledComponents.div`
   padding: 0;
   overflow: auto;
   color: ${colours.black};
-
-  ${Header} {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    padding: 0.5em 0 2.5em;
-    z-index: ${vLayers.middle};
-
-    ${media.min.desktop`
-      height: auto;
-      width: auto;
-      right: 15%;
-      top: 50%;
-      bottom: auto;
-      transform: translateY(-50%);
-      margin-bottom: 0.5em;
-    `}
-  }
+  background: ${({ backgroundImage, }) => `url(${backgroundImage})`};
 `;
 
+const HeaderContainer = styledComponents.div`
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 0.5em 0 2.5em;
+  z-index: ${vLayers.middle};
+  text-align: center;
+
+  ${media.min.desktop`
+    height: auto;
+    width: auto;
+    right: 10%;
+    bottom: 50%;
+    transform: translateY(50%);
+    margin-padding: 0.5em;
+  `}
+`;
 
 class App extends Component {
   render() {
-    const carouselItems = [{
-      body: 'Carousel Item A',
-      backgroundImage: 'https://picsum.photos/300',
-    }, {
-      body: 'Carousel Item B',
-      backgroundImage: 'https://picsum.photos/300?2',
-    }, {
-      body: 'Carousel Item C',
-      backgroundImage: 'https://picsum.photos/300?3',
-    }, {
-      body: 'Carousel Item D',
-      backgroundImage: 'https://picsum.photos/300?4',
-    }];
+    const {
+      backgroundImage,
+      carouselItems,
+      contactMethods,
+      subTitle,
+      title,
+    } = this.props;
 
     return (
-      <AppContainer>
-        <Header>
-          <h1>Lorem Ipsum</h1>
-          <p>... and other placeholder copy.</p>
-          <ContactInformation />
-        </Header>
+      <AppContainer backgroundImage={backgroundImage}>
+        <HeaderContainer>
+          <Header>{title}</Header>
+          {subTitle && (<Subheader>{subTitle}</Subheader>)}
+          <ContactInformation  contactMethods={contactMethods}/>
+        </HeaderContainer>
         <Carousel carouselItems={carouselItems} />
       </AppContainer>
     );
   };
+};
+
+App.propTypes = {
+  backgroundImage: PropTypes.string,
+  carouselItems: PropTypes.arrayOf(PropTypes.object),
+  contactMethods: PropTypes.arrayOf(PropTypes.object),
+  subTitle: PropTypes.string,
+  title: PropTypes.string,
 };
 
 export default App;

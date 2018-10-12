@@ -24,6 +24,9 @@ module.exports = {
         test: /\.(jpg|png|gif|svg|eot|ttf|woff|woff2|otf)(\?.*)?$/,
         include: path.resolve(__dirname, 'src'),
         loader: 'file-loader',
+        options: {
+          name: 'media/[name].[ext]'
+        }
       }
     ],
   },

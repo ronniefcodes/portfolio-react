@@ -1,6 +1,7 @@
 import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
 import styledComponents from 'styled-components';
+import media from 'Utils/media';
 
 const StyledCarouselItem = styledComponents.div`
   height: 100%;
@@ -10,11 +11,18 @@ const StyledCarouselItem = styledComponents.div`
 const CarouselBackground = styledComponents.div`
   height: 100%;
   width: 100%;
-  background-image: ${({ backgroundImage, }) => `url(${backgroundImage})`};
+  background-image: ${({ backgroundImages, }) => `url(${backgroundImages.mobile})`};
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 50% 50%;
-  filter: brightness(120%) contrast(80%) opacity(50%) saturate(75%);
+  background-position: 50% 0;
+  filter: brightness(120%) contrast(80%) saturate(75%);
+
+  ${media.min.desktop`
+    background-image: ${({ backgroundImages, }) => backgroundImages.desktop ? `url(${backgroundImages.desktop})` : null}
+    background-size: contain;
+    background-position: 0 50%;
+    filter: none;
+  `}
 `;
 
 const CarouselContent = styledComponents.div`
@@ -28,14 +36,14 @@ const CarouselContent = styledComponents.div`
 class CarouselItem extends Component {
   render() {
     const {
-      backgroundImage,
+      backgroundImages,
       body,
     } = this.props;
 
     return (
       <StyledCarouselItem>
-        {backgroundImage && (<CarouselBackground backgroundImage={backgroundImage} />)}
-        {body && (<CarouselContent __dangerouslySetInnerHTML={body} />)}
+        {backgroundImages && (<CarouselBackground backgroundImages={backgroundImages} />)}
+        {body && (<CarouselContent dangerouslySetInnerHTML={{ __html: body, }} />)}
       </StyledCarouselItem>
     )
   }
