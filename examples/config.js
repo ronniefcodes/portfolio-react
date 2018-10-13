@@ -1,26 +1,32 @@
 const config = {
   backgroundImages: {
-    mobile: '/media/background--plain.jpg',
+    mobile: '/media/code-mobile.jpg',
+    desktop: '/media/code.jpg',
   },
   carouselItems: [{
     backgroundImages: {
-      mobile: '/media/splash-mobile--1.jpg',
-      desktop: '/media/splash--1.jpg',
+      mobile: '/media/sandbox-mobile.jpg',
+      desktop: '/media/sandbox.jpg',
     },
   }, {
     backgroundImages: {
-      mobile: '/media/splash-mobile--2.jpg',
-      desktop: '/media/splash--2.jpg',
+      mobile: '/media/heineken-mobile.jpg',
+      desktop: '/media/heineken.jpg',
     },
   }, {
     backgroundImages: {
-      mobile: '/media/splash-mobile--1.jpg',
-      desktop: '/media/splash--1.jpg',
+      mobile: '/media/shoppers-mobile.jpg',
+      desktop: '/media/shoppers.jpg',
     },
   }, {
     backgroundImages: {
-      mobile: '/media/splash-mobile--2.jpg',
-      desktop: '/media/splash--2.jpg',
+      mobile: '/media/mysites-mobile.jpg',
+      desktop: '/media/mysites.jpg',
+    },
+  }, {
+    backgroundImages: {
+      mobile: '/media/isolocity-mobile.jpg',
+      desktop: '/media/isolocity.jpg',
     },
   }],
   contactMethods: [{
