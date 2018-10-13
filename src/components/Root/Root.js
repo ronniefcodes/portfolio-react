@@ -31,7 +31,16 @@ class Root extends Component {
 };
 
 Root.propTypes = {
-  theme: PropTypes.object,
+  theme: PropTypes.shape({
+    app: PropTypes.object.isRequired,
+    backgrounds: PropTypes.object.isRequired,
+    buttons: PropTypes.object.isRequired,
+    carousel: PropTypes.object.isRequired,
+    fontFamilies: PropTypes.object.isRequired,
+    headerContainer: PropTypes.object.isRequired,
+    headers: PropTypes.object.isRequired,
+    links: PropTypes.object.isRequired,    
+  }),
   content: PropTypes.object,
 };
 

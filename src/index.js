@@ -1,4 +1,3 @@
-import theme from './theme';
 import renderApp from './utils/run';
 
 const render = (...props) => {

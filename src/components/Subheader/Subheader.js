@@ -1,21 +1,20 @@
-import React from 'react';
-import styled from 'styled-components';
-import media from 'Utils/media';
+import styledComponents from 'styled-components';
+import media, { getAvailableBreakpointNames, } from 'Utils/media';
 
-const Subheader = styled.h3`
+const Subheader = styledComponents.h3`
   font-family: ${({ theme, }) => theme.headers.fontFamily};
-  font-size: ${({ theme, }) => theme.headers.h3.fontSize};
+  font-size: ${({ theme, }) => theme.headers.h3FontSize};
   font-weight: ${({ theme, }) => theme.headers.fontWeight};
-  text-transform: ${({ theme, }) => theme.headers.h3.textTransform};
+  text-transform: ${({ theme, }) => theme.headers.h3TextTransform};
   margin: 0.25em 0;
 
-  ${({ theme, }) => theme.headers.tablet && theme.headers.smallDesktop.h3 && media.min.tablet`
-    font-size: ${theme.headers.tablet.h3.fontSize};
-  `};
-
-  ${({ theme, }) => theme.headers.smallDesktop && theme.headers.smallDesktop.h3 && media.min.smallDesktop`
-    font-size: ${theme.headers.smallDesktop.h3.fontSize};
-  `};
+  ${({ theme, }) =>
+    getAvailableBreakpointNames().map((breakpoint) =>
+      theme.headers[breakpoint] ? media.min[breakpoint]`
+        font-size: ${theme.headers[breakpoint].h3FontSize};
+      ` : null
+    )
+  }
 `;
 
 export default Subheader;

@@ -1,25 +1,20 @@
-import React from 'react';
 import styledComponents from 'styled-components';
-import media from 'Utils/media';
+import media, { getAvailableBreakpointNames, } from 'Utils/media';
 
 const Header = styledComponents.h1`
   font-family: ${({ theme, }) => theme.headers.fontFamily};
-  font-size: ${({ theme, }) => theme.headers.h1.fontSize};
+  font-size: ${({ theme, }) => theme.headers.h1FontSize};
   font-weight: ${({ theme, }) => theme.headers.fontWeight};
-  text-transform: ${({ theme, }) => theme.headers.h1.textTransform};
+  text-transform: ${({ theme, }) => theme.headers.h1TextTransform};
   margin: 0.25em 0;
 
-  ${({ theme, }) => theme.headers.mobile && theme.headers.mobile.h1 && media.min.mobile`
-    font-size: ${theme.headers.mobile.h1.fontSize};
-  `};
-
-  ${({ theme, }) => theme.headers.tablet && theme.headers.tablet.h1 && media.min.tablet`
-    font-size: ${theme.headers.tablet.h1.fontSize};
-  `};
-
-  ${({ theme, }) => theme.headers.smallDesktop && theme.headers.smallDesktop.h1 && media.min.smallDesktop`
-    font-size: ${theme.headers.smallDesktop.h1.fontSize};
-  `};
+  ${({ theme, }) =>
+    getAvailableBreakpointNames().map((breakpoint) =>
+      theme.headers[breakpoint] ? media.min[breakpoint]`
+        font-size: ${theme.headers[breakpoint].h1FontSize};
+      ` : null
+    )
+  }
 `;
 
 export default Header;
