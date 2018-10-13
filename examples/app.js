@@ -1,5 +1,8 @@
-import 'Theme';
 import render from 'Utils/run';
-import config from './config';
+import content from './content';
+import theme from './theme';
 
-render(config || {}, 'react-root');
+render({
+  content,
+  theme,
+}, 'react-root');

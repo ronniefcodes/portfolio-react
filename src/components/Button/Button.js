@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
-  -webkit-appearance: none;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-shadow: none;
-  background: none;
+  -webkit-appearance: ${({ theme, }) => theme.buttons.webkitAppearance};
+  margin: ${({ theme, }) => theme.buttons.margin};
+  padding: ${({ theme, }) => theme.buttons.padding};
+  border: ${({ theme, }) => theme.buttons.border};
+  box-shadow: ${({ theme, }) => theme.buttons.boxShadow};
+  background: ${({ theme, }) => theme.buttons.background};
 `;
 
 export default Button;

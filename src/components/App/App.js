@@ -1,14 +1,13 @@
 import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
 import styledComponents from 'styled-components';
-import colours from 'Theme/colours';
 import media from 'Utils/media';
-import vLayers from 'Utils/vLayers';
 
 import BackgroundContainer from 'Components/BackgroundContainer';
 import Carousel from 'Components/Carousel';
 import ContactInformation from 'Components/ContactInformation';
 import Header from 'Components/Header';
+import HeaderContainer from 'Components/HeaderContainer';
 import Subheader from 'Components/Subheader';
 
 const AppContainer = styledComponents(BackgroundContainer)`
@@ -19,64 +18,47 @@ const AppContainer = styledComponents(BackgroundContainer)`
   margin: 0;
   padding: 0;
   overflow: auto;
-  color: ${colours.black};
-  background: ${({ backgroundImages, }) => `url(${backgroundImages.mobile})`};
+  font-family: ${({ theme, }) => theme.app.fontFamily};
+  color: ${({ theme, }) => theme.app.fontColor};
+  background-color: ${({ theme, }) => theme.app.backgroundColor};
+  background-image: ${({ theme, }) => `url(${theme.app.backgroundImageUrl})`};
 
-  ${media.min.tablet`
-    background-image: ${({ backgroundImages, }) => backgroundImages.tablet ? `url(${backgroundImages.tablet})` : null};
-  `}${media.min.desktop`
-    background-image: ${({ backgroundImages, }) => backgroundImages.desktop ? `url(${backgroundImages.desktop})` : null};
+  ${({ theme, }) => theme.app.tablet && media.min.tablet`
+    background-image: ${({ theme, }) => `url(${theme.app.tablet.backgroundImageUrl})`};
   `}
-`;
-
-const HeaderContainer = styledComponents.div`
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  padding: 0.5em 0 2.5em;
-  z-index: ${vLayers.middle};
-  text-align: center;
-
-  ${media.min.tablet`
-    height: auto;
-    width: auto;
-    right: 5%;
-    bottom: 5%;
-    margin-padding: 0.5em;
-    text-align: right;
+  ${({ theme, }) => theme.app.smallDesktop && media.min.smallDesktop`
+    background-image: ${({ theme, }) => `url(${theme.app.smallDesktop.backgroundImageUrl})`};
   `}
 `;
 
 class App extends Component {
   render() {
     const {
-      backgroundImages,
-      carouselItems,
       contactMethods,
-      subTitle,
+      name,
+      projects,
       title,
     } = this.props;
 
     return (
-      <AppContainer backgroundImages={backgroundImages}>
+      <AppContainer>
         <HeaderContainer>
-          <Header>{title}</Header>
-          {subTitle && (
-            <Subheader>{subTitle}</Subheader>
+          <Header>{name}</Header>
+          {title && (
+            <Subheader>{title}</Subheader>
           )}
-          <ContactInformation  contactMethods={contactMethods}/>
+          <ContactInformation contactMethods={contactMethods}/>
         </HeaderContainer>
-        <Carousel carouselItems={carouselItems} />
+        <Carousel items={projects} />
       </AppContainer>
     );
   };
 };
 
 App.propTypes = {
-  backgroundImages: PropTypes.object,
-  carouselItems: PropTypes.arrayOf(PropTypes.object),
   contactMethods: PropTypes.arrayOf(PropTypes.object),
-  subTitle: PropTypes.string,
+  name: PropTypes.string,
+  projects: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string,
 };
 

@@ -10,23 +10,25 @@ const StyledCarouselItem = styledComponents.div`
 `;
 
 const CarouselBackground = styledComponents(BackgroundContainer)`
-  height: 100%;
-  width: 100%;
+  height: ${({ theme, }) => theme.carousel.background.height};
+  width: ${({ theme, }) => theme.carousel.background.width};
   background-image: ${({ backgroundImages, }) => `url(${backgroundImages.mobile})`};
 
   ${media.min.tablet`
     background-image: ${({ backgroundImages, }) => backgroundImages.tablet ? `url(${backgroundImages.tablet})` : null};
-  `}${media.min.desktop`
-    background-image: ${({ backgroundImages, }) => backgroundImages.desktop ? `url(${backgroundImages.desktop})` : null};
+  `}${media.min.smallDesktop`
+    background-image: ${({ backgroundImages, }) => backgroundImages.smallDesktop ? `url(${backgroundImages.smallDesktop})` : null};
   `}
 `;
 
 const CarouselContent = styledComponents.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  position: ${({ theme, }) => theme.carousel.content.position};
+  bottom: ${({ theme, }) => theme.carousel.content.positionBottom};
+  left: ${({ theme, }) => theme.carousel.content.positionLeft};
+  right: ${({ theme, }) => theme.carousel.content.positionRight};
+  top: ${({ theme, }) => theme.carousel.content.positionTop};
+  transform: ${({ theme, }) => theme.carousel.content.translate};
+  text-align: ${({ theme, }) => theme.carousel.content.textAlign};
 `;
 
 class CarouselItem extends Component {

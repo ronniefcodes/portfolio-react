@@ -9,6 +9,7 @@ const ContactInformationContainer = styledComponents.div`
 
   a {
     display: inline-block;
+    line-height: 0;
 
     & + a {
       margin-left: 1.25em;
