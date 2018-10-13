@@ -1,23 +1,24 @@
 import styledComponents from 'styled-components';
 import media from 'Utils/media';
-import { verticallyCentred, } from 'Utils/mixins';
 import Button from 'Components/Button';
 
 const CarouselNavButton = styledComponents(Button)`
-  ${verticallyCentred}
-  margin: ${({ theme, }) => theme.carousel.navButtons.margin};
-  padding: ${({ theme, }) => theme.carousel.navButtons.padding};
-  z-index: ${({ theme, }) => theme.carousel.navButtons.zIndex};
+  position: ${({ theme, }) => theme.carouselNavButtons.position};
+  top: ${({ theme, }) => theme.carouselNavButtons.positionTop};
+  transform: ${({ theme, }) => theme.carouselNavButtons.transform};
+  margin: ${({ theme, }) => theme.carouselNavButtons.margin};
+  padding: ${({ theme, }) => theme.carouselNavButtons.padding};
+  z-index: ${({ theme, }) => theme.carouselNavButtons.zIndex};
 
-  ${({ action, theme, }) => theme.carousel && theme.carousel.navButtons[action] && `
-    left: ${theme.carousel.navButtons[action].positionLeft};
-    right: ${theme.carousel.navButtons[action].positionRight};
+  ${({ action, theme, }) => `
+    ${theme.carouselNavButtons[action] && `
+      left: ${theme.carouselNavButtons[action].positionLeft};
+      right: ${theme.carouselNavButtons[action].positionRight};
+    `}
 
-    ${media.min.smallDesktop`
-      ${theme.carousel.smallDesktop && theme.carousel.smallDesktop.navButtons[action] && `
-        left: ${theme.carousel.smallDesktop.navButtons[action].positionLeft};
-        right: ${theme.carousel.smallDesktop.navButtons[action].positionRight};
-      `}
+    ${theme.carouselNavButtons.smallDesktop && theme.carouselNavButtons.smallDesktop[action] && media.min.smallDesktop`
+      left: ${theme.carouselNavButtons.smallDesktop[action].positionLeft};
+      right: ${theme.carouselNavButtons.smallDesktop[action].positionRight};
     `}
   `}
 `;

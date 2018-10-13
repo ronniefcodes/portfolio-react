@@ -1,5 +1,5 @@
 import styledComponents from 'styled-components';
-import media from 'Utils/media';
+import media, { getAvailableBreakpointNames, } from 'Utils/media';
 
 const HeaderContainer = styledComponents.div`
   width: ${({ theme, }) => theme.headerContainer.width};
@@ -10,30 +10,27 @@ const HeaderContainer = styledComponents.div`
   top: ${({ theme, }) => theme.headerContainer.positionTop};
   padding: ${({ theme, }) => theme.headerContainer.padding};
   background: ${({ theme, }) => theme.headerContainer.background};
+  transition: ${({ theme, }) => theme.headerContainer.transition};
   z-index: ${({ theme, }) => theme.headerContainer.zIndex};
   text-align:  ${({ theme, }) => theme.headerContainer.textAlign};
 
-  ${({ theme, }) => theme.headerContainer.smallDesktop && media.min.smallDesktop`
-    height: ${theme.headerContainer.smallDesktop.height};
-    width: ${theme.headerContainer.smallDesktop.width};
-    position: ${theme.headerContainer.smallDesktop.position};
-    bottom: ${theme.headerContainer.smallDesktop.positionBottom};
-    left: ${theme.headerContainer.smallDesktop.positionLeft};
-    right: ${theme.headerContainer.smallDesktop.positionRight};
-    top: ${theme.headerContainer.smallDesktop.positionTop};
-    margin: ${theme.headerContainer.smallDesktop.margin};
-    padding: ${theme.headerContainer.smallDesktop.padding};
-    background: ${theme.headerContainer.smallDesktop.background};
-    text-align:  ${theme.headerContainer.smallDesktop.textAlign};
-  `}
-
-  ${({ theme, }) => theme.headerContainer.desktop && media.min.desktop`
-    height: ${theme.headerContainer.desktop.height};
-    width: ${theme.headerContainer.desktop.width};
-    margin: ${theme.headerContainer.desktop.margin};
-    padding: ${theme.headerContainer.desktop.padding};
-    background: ${theme.headerContainer.desktop.background};
-  `}
+  ${({ theme, }) =>
+    getAvailableBreakpointNames().map((breakpoint) =>
+      theme.headerContainer[breakpoint] ? media.min[breakpoint]`
+        height: ${theme.headerContainer[breakpoint].height};
+        width: ${theme.headerContainer[breakpoint].width};
+        position: ${theme.headerContainer[breakpoint].position};
+        bottom: ${theme.headerContainer[breakpoint].positionBottom};
+        left: ${theme.headerContainer[breakpoint].positionLeft};
+        right: ${theme.headerContainer[breakpoint].positionRight};
+        top: ${theme.headerContainer[breakpoint].positionTop};
+        margin: ${theme.headerContainer[breakpoint].margin};
+        padding: ${theme.headerContainer[breakpoint].padding};
+        background: ${theme.headerContainer[breakpoint].background};
+        text-align:  ${theme.headerContainer[breakpoint].textAlign};
+      ` : null
+    )
+  }
 `;
 
 export default HeaderContainer;

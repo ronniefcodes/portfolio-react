@@ -1,7 +1,7 @@
 import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
 import styledComponents from 'styled-components';
-import media from 'Utils/media';
+import media, { getAvailableBreakpointNames, } from 'Utils/media';
 
 import BackgroundContainer from 'Components/BackgroundContainer';
 import Carousel from 'Components/Carousel';
@@ -23,12 +23,13 @@ const AppContainer = styledComponents(BackgroundContainer)`
   background-color: ${({ theme, }) => theme.app.backgroundColor};
   background-image: ${({ theme, }) => `url(${theme.app.backgroundImageUrl})`};
 
-  ${({ theme, }) => theme.app.tablet && media.min.tablet`
-    background-image: ${({ theme, }) => `url(${theme.app.tablet.backgroundImageUrl})`};
-  `}
-  ${({ theme, }) => theme.app.smallDesktop && media.min.smallDesktop`
-    background-image: ${({ theme, }) => `url(${theme.app.smallDesktop.backgroundImageUrl})`};
-  `}
+  ${({ theme, }) =>
+    getAvailableBreakpointNames().map((breakpoint) =>
+      theme.app[breakpoint] ? media.min[breakpoint]`
+        background-image: url(${theme.app[breakpoint].backgroundImageUrl});
+      ` : null
+    )
+  }
 `;
 
 class App extends Component {

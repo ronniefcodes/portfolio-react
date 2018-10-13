@@ -1,7 +1,7 @@
 import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
 import styledComponents from 'styled-components';
-import media from 'Utils/media';
+import media, { getAvailableBreakpointNames, } from 'Utils/media';
 import BackgroundContainer from 'Components/BackgroundContainer';
 
 const StyledCarouselItem = styledComponents.div`
@@ -10,25 +10,27 @@ const StyledCarouselItem = styledComponents.div`
 `;
 
 const CarouselBackground = styledComponents(BackgroundContainer)`
-  height: ${({ theme, }) => theme.carousel.background.height};
-  width: ${({ theme, }) => theme.carousel.background.width};
+  height: ${({ theme, }) => theme.carousel.backgroundHeight};
+  width: ${({ theme, }) => theme.carousel.backgroundWidth};
   background-image: ${({ backgroundImages, }) => `url(${backgroundImages.mobile})`};
 
-  ${media.min.tablet`
-    background-image: ${({ backgroundImages, }) => backgroundImages.tablet ? `url(${backgroundImages.tablet})` : null};
-  `}${media.min.smallDesktop`
-    background-image: ${({ backgroundImages, }) => backgroundImages.smallDesktop ? `url(${backgroundImages.smallDesktop})` : null};
-  `}
+  ${({ backgroundImages, }) =>
+    getAvailableBreakpointNames().map((breakpoint) =>
+      backgroundImages[breakpoint] ? media.min[breakpoint]`
+        background-image: url(${backgroundImages[breakpoint]});
+      ` : null
+    )
+  }
 `;
 
 const CarouselContent = styledComponents.div`
-  position: ${({ theme, }) => theme.carousel.content.position};
-  bottom: ${({ theme, }) => theme.carousel.content.positionBottom};
-  left: ${({ theme, }) => theme.carousel.content.positionLeft};
-  right: ${({ theme, }) => theme.carousel.content.positionRight};
-  top: ${({ theme, }) => theme.carousel.content.positionTop};
-  transform: ${({ theme, }) => theme.carousel.content.translate};
-  text-align: ${({ theme, }) => theme.carousel.content.textAlign};
+  position: ${({ theme, }) => theme.carouselContent.position};
+  bottom: ${({ theme, }) => theme.carouselContent.positionBottom};
+  left: ${({ theme, }) => theme.carouselContent.positionLeft};
+  right: ${({ theme, }) => theme.carouselContent.positionRight};
+  top: ${({ theme, }) => theme.carouselContent.positionTop};
+  transform: ${({ theme, }) => theme.carouselContent.translate};
+  text-align: ${({ theme, }) => theme.carouselContent.textAlign};
 `;
 
 class CarouselItem extends Component {

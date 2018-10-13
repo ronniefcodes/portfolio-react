@@ -6,8 +6,8 @@ const _COLORS = {
 };
 
 const _FONT_FAMILIES = {
-  header: 'Montserrat, sans-serif',
-  body: '"Open Sans", sans-serif',
+  header: 'Montserrat, Helvetica, Arial, sans-serif',
+  base: '"Open Sans", Helvetica, Arial, sans-serif',
 };
 
 const _ZINDICES = {
@@ -19,29 +19,11 @@ const _ZINDICES = {
 const app = {
   backgroundColor: _COLORS.brown,
   backgroundImageUrl: '/media/code-mobile.jpg',
+  fontFamily: _FONT_FAMILIES.base,
   fontColor: _COLORS.black,
   smallDesktop: {
     backgroundImageUrl: '/media/code.jpg'
   },
-};
-
-const backgrounds = {
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: '50%',
-  smallDesktop: {
-    backgroundPosition: '0 50%',
-  },
-};
-
-const buttons = {
-  webkitAppearance: 'none',
-  background: 'none',
-  border: 'none',
-  borderRadius: '0',
-  boxShadow: 'none',
-  margin: '0',
-  padding: '0',
 };
 
 const fontFamilies = {
@@ -63,7 +45,15 @@ const headerContainer = {
   positionBottom: '0',
   width: '100%',
   padding: '0.5em 0 2.5em',
-  background: 'linear-gradient(179deg, rgba(255,255,255,0) 0%, rgba(239,236,230,0.5) 28%, rgba(229,224,214,0.8) 46%, rgba(217,209,193,1) 69%, rgba(201,189,167,1) 100%)',
+  background: `linear-gradient(
+    179deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.0) 5%,
+    rgba(239,236,230,0.5) 28%,
+    rgba(229,224,214,0.8) 46%,
+    rgba(217,209,193,1) 69%,
+    rgba(201,189,167,1) 100%)
+  `,
   textAlign: 'center',
   zIndex: _ZINDICES.middle,
   smallDesktop: {
@@ -84,85 +74,33 @@ const headers = {
   fontFamily: _FONT_FAMILIES.header,
   fontWeight: '500',
   letterSpacing: '0.05ch',
-  h1: {
-    fontSize: '35px',
-    textTransform: 'uppercase',
-  },
-  h3: {
-    fontSize: '22px',
-  },
+  h1FontSize: '35px',
+  h1TextTransform: 'uppercase',
+  h3FontSize: '22px',
   mobile: {
-    h1: {
-      fontSize: '50px',
-    },
+    h1FontSize: '50px',
   },
   smallDesktop: {
-    h1: {
-      fontSize: '40px',
-    },
+    h1FontSize: '40px',
   },
 };
 
 const links = {
   fontColor: _COLORS.blue,
-  icon: {
-    height: '40px',
-    width: '40px',
-    padding: '5px',
-    border: `2px solid ${_COLORS.blue}`,
-    borderRadius: '100%',
-    transition: '0.25s all',
-  },
+  iconHeight: '40px',
+  iconWidth: '40px',
+  iconPadding: '5px',
+  iconBorder: `2px solid ${_COLORS.blue}`,
+  iconBorderRadius: '100%',
+  iconTransition: '0.25s all',
   onActive: {
     fontColor: _COLORS.white,
-    icon: {
-      backgroundColor: _COLORS.blue,
-    }
+    iconBackgroundColor: _COLORS.blue,
   }
 };
 
-const carousel = {
-  height: '100%',
-  background: {
-    height: '100%',
-    width: '100%',
-  },
-  content: {
-    position: 'absolute',
-    positionLeft: '50%',
-    positionTop: '50%',
-    transform: 'translate(-50%, -50%)',
-    textAlign: 'center',
-  },
-  navButtons: {
-    fontColor: _COLORS.black,
-    margin: '0.5em',
-    padding: '0.5em',
-    zIndex: _ZINDICES.top,
-    back: {
-      positionLeft: '0',
-    },
-    next: {
-      positionRight: '0',
-    },
-  },
-  smallDesktop: {
-    navButtons: {
-      back: {
-        positionLeft: '2%',
-      },
-      next: {
-        positionRight: '2%',
-      },
-    },
-  }
-}
-
 const theme = {
   app,
-  backgrounds,
-  buttons,
-  carousel,
   fontFamilies,
   headerContainer,
   headers,

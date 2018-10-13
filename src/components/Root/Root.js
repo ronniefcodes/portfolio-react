@@ -4,6 +4,8 @@ import styledComponents, {
   injectGlobal,
   ThemeProvider,
 } from 'styled-components';
+import baseTheme from 'Theme';
+
 import App from 'Components/App';
 import withGoogleFonts from 'Components/Fonts/withGoogleFonts';
 
@@ -23,7 +25,7 @@ class Root extends Component {
     } = this.props;
 
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={Object.assign({}, baseTheme, theme)}>
         <App {...content} />
       </ThemeProvider>
     );
@@ -31,7 +33,17 @@ class Root extends Component {
 };
 
 Root.propTypes = {
-  theme: PropTypes.object,
+  theme: PropTypes.shape({
+    app: PropTypes.object,
+    backgrounds: PropTypes.object,
+    buttons: PropTypes.object,
+    carousel: PropTypes.object,
+    carouselNavButtons: PropTypes.object,
+    fontFamilies: PropTypes.object,
+    headerContainer: PropTypes.object,
+    headers: PropTypes.object,
+    links: PropTypes.object,
+  }),
   content: PropTypes.object,
 };
 
