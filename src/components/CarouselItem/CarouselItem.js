@@ -12,15 +12,16 @@ const CarouselBackground = styledComponents.div`
   height: 100%;
   width: 100%;
   background-image: ${({ backgroundImages, }) => `url(${backgroundImages.mobile})`};
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: 50% 0;
 
   ${media.min.tablet`
     background-image: ${({ backgroundImages, }) => backgroundImages.tablet ? `url(${backgroundImages.tablet})` : null};
+    background-size: cover;
+    background-position: 0 50%;
   `}${media.min.desktop`
     background-image: ${({ backgroundImages, }) => backgroundImages.desktop ? `url(${backgroundImages.desktop})` : null};
-    background-position: 0 50%;
   `}
 `;
 
