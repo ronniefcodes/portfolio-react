@@ -4,6 +4,8 @@ import styledComponents, {
   injectGlobal,
   ThemeProvider,
 } from 'styled-components';
+import baseTheme from 'Theme';
+
 import App from 'Components/App';
 import withGoogleFonts from 'Components/Fonts/withGoogleFonts';
 
@@ -23,7 +25,7 @@ class Root extends Component {
     } = this.props;
 
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={Object.assign({}, baseTheme, theme)}>
         <App {...content} />
       </ThemeProvider>
     );
@@ -39,7 +41,7 @@ Root.propTypes = {
     fontFamilies: PropTypes.object.isRequired,
     headerContainer: PropTypes.object.isRequired,
     headers: PropTypes.object.isRequired,
-    links: PropTypes.object.isRequired,    
+    links: PropTypes.object.isRequired,
   }),
   content: PropTypes.object,
 };

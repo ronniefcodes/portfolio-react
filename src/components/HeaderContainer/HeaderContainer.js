@@ -10,6 +10,7 @@ const HeaderContainer = styledComponents.div`
   top: ${({ theme, }) => theme.headerContainer.positionTop};
   padding: ${({ theme, }) => theme.headerContainer.padding};
   background: ${({ theme, }) => theme.headerContainer.background};
+  transition: ${({ theme, }) => theme.headerContainer.transition};
   z-index: ${({ theme, }) => theme.headerContainer.zIndex};
   text-align:  ${({ theme, }) => theme.headerContainer.textAlign};
 

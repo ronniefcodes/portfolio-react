@@ -65,6 +65,7 @@ const headerContainer = {
   padding: '0.5em 0 2.5em',
   background: 'linear-gradient(179deg, rgba(255,255,255,0) 0%, rgba(239,236,230,0.5) 28%, rgba(229,224,214,0.8) 46%, rgba(217,209,193,1) 69%, rgba(201,189,167,1) 100%)',
   textAlign: 'center',
+  transition: '0.5s background',
   zIndex: _ZINDICES.middle,
   smallDesktop: {
     positionRight: '0',
@@ -120,7 +121,7 @@ const carousel = {
   contentTextAlign: 'center',
   navButtonsPosition: 'absolute',
   navButtonsPositionTop: '50%',
-  navButtonsTransform: 'translate(-50%, -50%)',
+  navButtonsTransform: 'translateY(-50%)',
   navButtonsFontColor: _COLORS.black,
   navButtonsFontColorMargin: '0.5em',
   navButtonsFontColorPadding: '0.5em',
