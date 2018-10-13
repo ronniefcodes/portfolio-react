@@ -15,15 +15,12 @@ const CarouselBackground = styledComponents.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 0;
-  filter: brightness(120%) contrast(80%) saturate(75%);
 
   ${media.min.tablet`
-    background-image: ${({ backgroundImages, }) => backgroundImages.tablet ? `url(${backgroundImages.tablet})` : null}
+    background-image: ${({ backgroundImages, }) => backgroundImages.tablet ? `url(${backgroundImages.tablet})` : null};
   `}${media.min.desktop`
-    background-image: ${({ backgroundImages, }) => backgroundImages.desktop ? `url(${backgroundImages.desktop})` : null}
-    background-size: contain;
+    background-image: ${({ backgroundImages, }) => backgroundImages.desktop ? `url(${backgroundImages.desktop})` : null};
     background-position: 0 50%;
-    filter: none;
   `}
 `;
 
@@ -52,7 +49,7 @@ class CarouselItem extends Component {
 }
 
 CarouselItem.propTypes = {
-  backgroundImage: PropTypes.string,
+  backgroundImages: PropTypes.object,
   body: PropTypes.string,
 };
 

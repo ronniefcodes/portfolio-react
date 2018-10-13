@@ -20,11 +20,14 @@ const AppContainer = styledComponents.div`
   overflow: auto;
   color: ${colours.black};
   background: ${({ backgroundImages, }) => `url(${backgroundImages.mobile})`};
+  background-size: cover;
+  background-position: 50% 0;
 
   ${media.min.tablet`
-    background: ${({ backgroundImages, }) => backgroundImages.tablet ? `url(${backgroundImages.tablet})` : null};
+    background-image: ${({ backgroundImages, }) => backgroundImages.tablet ? `url(${backgroundImages.tablet})` : null};
   `}${media.min.desktop`
-    background: ${({ backgroundImages, }) => backgroundImages.desktop ? `url(${backgroundImages.desktop})` : null};
+    background-image: ${({ backgroundImages, }) => backgroundImages.desktop ? `url(${backgroundImages.desktop})` : null};
+    background-position: 0 50%;
   `}
 `;
 
@@ -39,10 +42,10 @@ const HeaderContainer = styledComponents.div`
   ${media.min.desktop`
     height: auto;
     width: auto;
-    right: 10%;
-    bottom: 50%;
-    transform: translateY(50%);
+    right: 5%;
+    bottom: 5%;
     margin-padding: 0.5em;
+    text-align: right;
   `}
 `;
 
@@ -72,7 +75,7 @@ class App extends Component {
 };
 
 App.propTypes = {
-  backgroundImages: PropTypes.string,
+  backgroundImages: PropTypes.object,
   carouselItems: PropTypes.arrayOf(PropTypes.object),
   contactMethods: PropTypes.arrayOf(PropTypes.object),
   subTitle: PropTypes.string,
