@@ -22,10 +22,7 @@ module.exports = {
       },
       {
         test: /\.(jpg|png|gif|svg|eot|ttf|woff|woff2|otf)(\?.*)?$/,
-        include: [
-          path.resolve(__dirname, 'src'),
-          path.resolve(__dirname, "node_modules/react-native-vector-icons"),
-        ],
+        include: path.resolve(__dirname, 'src'),
         loader: 'file-loader',
         options: {
           name: 'media/[name].[ext]'
