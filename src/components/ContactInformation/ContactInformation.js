@@ -1,23 +1,19 @@
 import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
 import styledComponents from 'styled-components';
-import media from 'Utils/media';
 import { parseContactMethodUrl, } from 'Utils/url';
-import colours from 'Theme/colours';
 import Link from 'Components/Link';
 
 const ContactInformationContainer = styledComponents.div`
   margin-top: 1.5em;
 
-  ${Link} + ${Link} {
-    margin-left: 0.75em;
-  }
+  a {
+    display: inline-block;
 
-  ${media.min.tablet`
-    ${Link} + ${Link} {
-      margin-left: 1.75em;
+    & + a {
+      margin-left: 1.25em;
     }
-  `}
+  }
 `;
 
 class ContactInformation extends Component {
@@ -28,12 +24,10 @@ class ContactInformation extends Component {
 
     return (
       <ContactInformationContainer>
-        {contactMethods && contactMethods.map((contactMethod, i) => (
-          <Link
-            key={`contactMethod-${i}`}
-            href={parseContactMethodUrl(contactMethod)}
-            aria-label={contactMethod.ariaLabel}>{contactMethod.name}</Link>
-        ))}
+        {contactMethods && contactMethods.map((contactMethod, i) => {
+          const url = parseContactMethodUrl(contactMethod);
+          return (<Link key={`contactMethod-${i}`} url={url} {...contactMethod} />)
+        })}
       </ContactInformationContainer>
     )
   };
