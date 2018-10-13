@@ -17,7 +17,7 @@ class Icon extends Component {
     return (
       <IconContainer
         dangerouslySetInnerHTML={{
-          __html: feather.icons[name].toSvg(others),
+          __html: !!feather.icons[name] ? feather.icons[name].toSvg(others) : name,
         }}
       />
     );

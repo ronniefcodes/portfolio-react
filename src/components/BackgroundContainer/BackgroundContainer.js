@@ -1,16 +1,14 @@
 import React from 'react';
 import styledComponents from 'styled-components';
 import media from 'Utils/media';
-import colours from 'Theme/colours';
 
 const BackgroundImageContainer = styledComponents.div`
-  background-color: ${colours.brown};
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50%;
+  background-size: ${({ theme, }) => theme.backgrounds.backgroundSize};
+  background-repeat: ${({ theme, }) => theme.backgrounds.backgroundRepeat};
+  background-position: ${({ theme, }) => theme.backgrounds.backgroundPosition};
 
-  ${media.min.tablet`
-    background-position: 0 50%;
+  ${({ theme, }) => theme.backgrounds.smallDesktop && media.min.smallDesktop`
+    background-position: ${theme.backgrounds.smallDesktop.backgroundPosition};
   `}
 `;
 
