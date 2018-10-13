@@ -24,13 +24,13 @@ const CarouselBackground = styledComponents(BackgroundContainer)`
 `;
 
 const CarouselContent = styledComponents.div`
-  position: ${({ theme, }) => theme.carousel.contentPosition};
-  bottom: ${({ theme, }) => theme.carousel.contentPositionBottom};
-  left: ${({ theme, }) => theme.carousel.contentPositionLeft};
-  right: ${({ theme, }) => theme.carousel.contentPositionRight};
-  top: ${({ theme, }) => theme.carousel.contentPositionTop};
-  transform: ${({ theme, }) => theme.carousel.contentTranslate};
-  text-align: ${({ theme, }) => theme.carousel.contentTextAlign};
+  position: ${({ theme, }) => theme.carouselContent.position};
+  bottom: ${({ theme, }) => theme.carouselContent.positionBottom};
+  left: ${({ theme, }) => theme.carouselContent.positionLeft};
+  right: ${({ theme, }) => theme.carouselContent.positionRight};
+  top: ${({ theme, }) => theme.carouselContent.positionTop};
+  transform: ${({ theme, }) => theme.carouselContent.translate};
+  text-align: ${({ theme, }) => theme.carouselContent.textAlign};
 `;
 
 class CarouselItem extends Component {

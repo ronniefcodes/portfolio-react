@@ -6,8 +6,8 @@ const _COLORS = {
 };
 
 const _FONT_FAMILIES = {
-  header: 'Montserrat, sans-serif',
-  body: '"Open Sans", sans-serif',
+  header: 'Montserrat, Helvetica, Arial, sans-serif',
+  base: '"Open Sans", Helvetica, Arial, sans-serif',
 };
 
 const _ZINDICES = {
@@ -19,29 +19,11 @@ const _ZINDICES = {
 const app = {
   backgroundColor: _COLORS.brown,
   backgroundImageUrl: '/media/code-mobile.jpg',
+  fontFamily: _FONT_FAMILIES.base,
   fontColor: _COLORS.black,
   smallDesktop: {
     backgroundImageUrl: '/media/code.jpg'
   },
-};
-
-const backgrounds = {
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: '50%',
-  smallDesktop: {
-    backgroundPosition: '0 50%',
-  },
-};
-
-const buttons = {
-  webkitAppearance: 'none',
-  background: 'none',
-  border: 'none',
-  borderRadius: '0',
-  boxShadow: 'none',
-  margin: '0',
-  padding: '0',
 };
 
 const fontFamilies = {
@@ -63,9 +45,16 @@ const headerContainer = {
   positionBottom: '0',
   width: '100%',
   padding: '0.5em 0 2.5em',
-  background: 'linear-gradient(179deg, rgba(255,255,255,0) 0%, rgba(239,236,230,0.5) 28%, rgba(229,224,214,0.8) 46%, rgba(217,209,193,1) 69%, rgba(201,189,167,1) 100%)',
+  background: `linear-gradient(
+    179deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.0) 5%,
+    rgba(239,236,230,0.5) 28%,
+    rgba(229,224,214,0.8) 46%,
+    rgba(217,209,193,1) 69%,
+    rgba(201,189,167,1) 100%)
+  `,
   textAlign: 'center',
-  transition: '0.5s background',
   zIndex: _ZINDICES.middle,
   smallDesktop: {
     positionRight: '0',
@@ -110,47 +99,8 @@ const links = {
   }
 };
 
-const carousel = {
-  height: '100%',
-  backgroundHeight: '100%',
-  backgroundWidth: '100%',
-  contentPosition: 'absolute',
-  contentPositionLeft: '50%',
-  contentPositionTop: '50%',
-  contentTransform: 'translate(-50%, -50%)',
-  contentTextAlign: 'center',
-  navButtonsPosition: 'absolute',
-  navButtonsPositionTop: '50%',
-  navButtonsTransform: 'translateY(-50%)',
-  navButtonsFontColor: _COLORS.black,
-  navButtonsFontColorMargin: '0.5em',
-  navButtonsFontColorPadding: '0.5em',
-  navButtonsFontColorZIndex: _ZINDICES.top,
-  navButtons: {
-    back: {
-      positionLeft: '0',
-    },
-    next: {
-      positionRight: '0',
-    },
-  },
-  smallDesktop: {
-    navButtons: {
-      back: {
-        positionLeft: '2%',
-      },
-      next: {
-        positionRight: '2%',
-      },
-    },
-  }
-}
-
 const theme = {
   app,
-  backgrounds,
-  buttons,
-  carousel,
   fontFamilies,
   headerContainer,
   headers,
