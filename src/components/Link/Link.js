@@ -1,9 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
+import styledComponents from 'styled-components';
 import colours from 'Theme/colours';
 
-const Link = styled.a`
+import LinkIcon from 'Components/LinkIcon';
+
+const StyledLink = styledComponents.a`
   color: ${colours.blue};
 `;
+const Link = (props) => (
+  <StyledLink
+    title={props.name}
+    href={props.url}
+    aria-label={props.ariaLabel}>{
+    props.icon ? (<LinkIcon  name={props.icon} />) : props.name
+  }</StyledLink>
+)
 
 export default Link;

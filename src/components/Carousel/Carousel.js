@@ -1,12 +1,12 @@
 import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
 import styledComponents from 'styled-components';
-import 'Theme/icons';
 import media from 'Utils/media';
 import vLayers from 'Utils/vLayers';
 
 import Button from 'Components/Button';
 import CarouselItem from 'Components/CarouselItem';
+import Icon from 'Components/Icon';
 
 const CarouselContainer = styledComponents.div`
   position: relative;
@@ -108,14 +108,14 @@ class Carousel extends Component {
           className="carousel-nav-button--back"
           onClick={this.onCarouselBackClick}
         >
-          <i className="material-icons">arrow_back_ios</i>
+          <Icon name="chevron-left" height="30" width="30" />
         </CarouselNavButton>
         <CarouselNavButton
           type="button"
           className="carousel-nav-button--next"
           onClick={this.onCarouselNextClick}
         >
-          <i className="material-icons">arrow_forward_ios</i>
+          <Icon name="chevron-right" height="30" width="30" />
         </CarouselNavButton>
         <CarouselItem
           onClick={this.handleCarouselOnClick}

@@ -5,12 +5,13 @@ import colours from 'Theme/colours';
 import media from 'Utils/media';
 import vLayers from 'Utils/vLayers';
 
+import BackgroundContainer from 'Components/BackgroundContainer';
 import Carousel from 'Components/Carousel';
 import ContactInformation from 'Components/ContactInformation';
 import Header from 'Components/Header';
 import Subheader from 'Components/Subheader';
 
-const AppContainer = styledComponents.div`
+const AppContainer = styledComponents(BackgroundContainer)`
   position: relative;
   display: block;
   height: 100vh;
@@ -20,14 +21,11 @@ const AppContainer = styledComponents.div`
   overflow: auto;
   color: ${colours.black};
   background: ${({ backgroundImages, }) => `url(${backgroundImages.mobile})`};
-  background-size: cover;
-  background-position: 50% 0;
 
   ${media.min.tablet`
     background-image: ${({ backgroundImages, }) => backgroundImages.tablet ? `url(${backgroundImages.tablet})` : null};
   `}${media.min.desktop`
     background-image: ${({ backgroundImages, }) => backgroundImages.desktop ? `url(${backgroundImages.desktop})` : null};
-    background-position: 0 50%;
   `}
 `;
 
@@ -39,7 +37,7 @@ const HeaderContainer = styledComponents.div`
   z-index: ${vLayers.middle};
   text-align: center;
 
-  ${media.min.desktop`
+  ${media.min.tablet`
     height: auto;
     width: auto;
     right: 5%;

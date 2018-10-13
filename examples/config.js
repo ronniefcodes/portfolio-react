@@ -1,50 +1,54 @@
 const config = {
   backgroundImages: {
     mobile: '/media/code-mobile.jpg',
-    desktop: '/media/code.jpg',
+    tablet: '/media/code.jpg',
   },
   carouselItems: [{
     backgroundImages: {
       mobile: '/media/sandbox-mobile.jpg',
-      desktop: '/media/sandbox.jpg',
+      tablet: '/media/sandbox.jpg',
     },
   }, {
     backgroundImages: {
       mobile: '/media/heineken-mobile.jpg',
-      desktop: '/media/heineken.jpg',
+      tablet: '/media/heineken.jpg',
     },
   }, {
     backgroundImages: {
       mobile: '/media/shoppers-mobile.jpg',
-      desktop: '/media/shoppers.jpg',
+      tablet: '/media/shoppers.jpg',
     },
   }, {
     backgroundImages: {
       mobile: '/media/mysites-mobile.jpg',
-      desktop: '/media/mysites.jpg',
+      tablet: '/media/mysites.jpg',
     },
   }, {
     backgroundImages: {
       mobile: '/media/isolocity-mobile.jpg',
-      desktop: '/media/isolocity.jpg',
+      tablet: '/media/isolocity.jpg',
     },
   }],
   contactMethods: [{
     name: 'Email',
     type: 'email',
     value: '#',
+    icon: 'mail',
   }, {
-    name: 'Phone',
-    type: 'phone',
+    name: 'Github',
+    type: 'url',
     value: '#',
+    icon: 'github',
   }, {
     name: 'LinkedIn',
     type: 'url',
-    value: '#'
+    value: '#',
+    icon: 'linkedin',
   }, {
     name: 'Resume',
     type: 'url',
     value: '#',
+    icon: 'download',
   }],
   subTitle: '... and other placeholder copy.',
   title: 'Lorem Ipsum',
