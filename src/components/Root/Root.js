@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styledComponents, {
+import {
   injectGlobal,
   ThemeProvider,
 } from 'styled-components';
 import { generateThemeFromBase, } from 'Utils/theme';
-
+import { withGoogleFonts, } from 'Components/Fonts';
 import App from 'Components/App';
-import withGoogleFonts from 'Components/Fonts/withGoogleFonts';
 
 injectGlobal`
   body {
@@ -24,8 +23,10 @@ class Root extends Component {
       theme,
     } = this.props;
 
+    const generatedTheme = generateThemeFromBase(theme);
+
     return (
-      <ThemeProvider theme={generateThemeFromBase(theme)}>
+      <ThemeProvider theme={generatedTheme}>
         <App {...content} />
       </ThemeProvider>
     );

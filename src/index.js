@@ -1,4 +1,4 @@
-import renderApp from './utils/run';
+import renderApp from 'Utils/run';
 
 const render = (...props) => {
   renderApp(...props);
