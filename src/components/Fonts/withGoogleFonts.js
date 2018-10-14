@@ -11,10 +11,10 @@ const getFontFamilyParameter = (fontFamilies) => {
 };
 
 function withGoogleFonts(WrappedComponent) {
-  return (props) => {
+  const injectFontImport = (props) => {
     const { theme, } = props;
 
-    if (!!theme.fontFamilies) {
+    if (theme.fontFamilies) {
       injectGlobal`
         @import url(${`https://fonts.googleapis.com/css?family=${getFontFamilyParameter(theme.fontFamilies.googleFonts)}`});
       `;
@@ -22,6 +22,8 @@ function withGoogleFonts(WrappedComponent) {
 
     return (<WrappedComponent {...props} />);
   };
+
+  return injectFontImport;
 }
 
 export default withGoogleFonts;

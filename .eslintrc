@@ -1,4 +1,10 @@
 {
-  "extends": "eslint:recommended",
-  "parser": "babel-eslint",
+  "env": {
+    "amd": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "parser": "babel-eslint"
 }

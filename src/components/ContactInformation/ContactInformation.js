@@ -5,7 +5,7 @@ import { parseContactMethodUrl, } from 'Utils/url';
 import Link from 'Components/Link';
 
 const ContactInformationContainer = styledComponents.div`
-  margin-top: 1.5em;
+  margin: ${({ theme, }) => theme.contactInformation.margin};
 
   a {
     display: inline-block;
@@ -31,8 +31,8 @@ class ContactInformation extends Component {
         })}
       </ContactInformationContainer>
     )
-  };
-};
+  }
+}
 
 ContactInformation.propTypes = {
   contactMethods: PropTypes.arrayOf(PropTypes.object),

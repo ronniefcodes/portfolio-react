@@ -76,6 +76,10 @@ const carouselNavButtons = {
   },
 };
 
+const contactInformation = {
+  margin: '1.5em 0 0',
+};
+
 const fontFamilies = {};
 
 // attributes for header elements (h1)
