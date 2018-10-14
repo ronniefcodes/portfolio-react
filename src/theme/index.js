@@ -140,6 +140,7 @@ const theme = {
   carousel,
   carouselContent,
   carouselNavButtons,
+  contactInformation,
   fontFamilies,
   headers,
   headerContainer,
