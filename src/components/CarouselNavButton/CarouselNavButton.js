@@ -10,16 +10,14 @@ const CarouselNavButton = styledComponents(Button)`
   padding: ${({ theme, }) => theme.carouselNavButtons.padding};
   z-index: ${({ theme, }) => theme.carouselNavButtons.zIndex};
 
-  ${({ action, theme, }) => `
-    ${theme.carouselNavButtons[action] && `
-      left: ${theme.carouselNavButtons[action].positionLeft};
-      right: ${theme.carouselNavButtons[action].positionRight};
-    `}
+  ${({ action, theme, }) => theme.carouselNavButtons[action] && `
+    left: ${theme.carouselNavButtons[action].positionLeft || ''};
+    right: ${theme.carouselNavButtons[action].positionRight || ''};
+  `}
 
-    ${theme.carouselNavButtons.smallDesktop && theme.carouselNavButtons.smallDesktop[action] && media.min.smallDesktop`
-      left: ${theme.carouselNavButtons.smallDesktop[action].positionLeft};
-      right: ${theme.carouselNavButtons.smallDesktop[action].positionRight};
-    `}
+  ${({ action, theme, }) => (theme.carouselNavButtons.smallDesktop && theme.carouselNavButtons.smallDesktop[action]) && media.min.smallDesktop`
+    left: ${theme.carouselNavButtons.smallDesktop[action].positionLeft || ''};
+    right: ${theme.carouselNavButtons.smallDesktop[action].positionRight || ''};
   `}
 `;
 

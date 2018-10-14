@@ -9,7 +9,9 @@ const _ZINDICES = {
   top: 10,
 };
 
-const app = {};
+const app = {
+  fontColor: _COLORS.black,
+};
 
 const backgrounds = {
   backgroundSize: 'cover',
@@ -60,17 +62,27 @@ const carouselNavButtons = {
   },
   smallDesktop: {
     back: {
-      positionLeft: '2%',
+      positionLeft: '1.5%',
     },
     next: {
-      positionRight: '2%',
+      positionRight: '1.5%',
     },
   },
 };
 
 const fontFamilies = {};
 
-const headers = {};
+const headers = {
+  h1FontSize: '35px',
+  h1TextTransform: 'uppercase',
+  h3FontSize: '22px',
+  mobile: {
+    h1FontSize: '50px',
+  },
+  smallDesktop: {
+    h1FontSize: '40px',
+  },
+};
 
 const headerContainer = {
   position: 'absolute',
