@@ -1,20 +1,20 @@
 const config = {
-  name: 'Ronnie Cheung',
-  title: 'Web Developer',
+  name: 'Lorem Ipsum',
+  title: '... and other placeholder copy.',
   contactMethods: [{
     title: 'email',
     type: 'email',
-    value: 'ronniefcheung@gmail.com',
+    value: '#',
     icon: 'mail',
   }, {
     title: 'github',
     type: 'website',
-    value: 'https://github.com/ronniefcodes',
+    value: '#',
     icon: 'github',
   }, {
     title: 'linkedin',
     type: 'website',
-    value: 'https://www.linkedin.com/in/ronniech/',
+    value: '#',
     icon: 'linkedin',
   }, {
     title: 'resume',
