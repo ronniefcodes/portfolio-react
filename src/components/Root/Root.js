@@ -30,8 +30,8 @@ class Root extends Component {
         <App {...content} />
       </ThemeProvider>
     );
-  };
-};
+  }
+}
 
 Root.propTypes = {
   theme: PropTypes.shape({

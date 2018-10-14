@@ -1,4 +1,5 @@
 import React, { Component, } from 'react';
+import PropTypes from 'prop-types';
 import styledComponents from 'styled-components';
 import { absolutelyCentred, } from 'Utils/mixins';
 
@@ -31,11 +32,15 @@ class LinkIcon extends Component {
     return (
       <StyledIcon
         dangerouslySetInnerHTML={{
-          __html: !!feather.icons[name] ? feather.icons[name].toSvg(others) : name,
+          __html: feather.icons[name] ? feather.icons[name].toSvg(others) : name,
         }}
       />
     );
   }
-};
+}
+
+LinkIcon.propTypes = {
+  name: PropTypes.string,
+}
 
 export default LinkIcon;

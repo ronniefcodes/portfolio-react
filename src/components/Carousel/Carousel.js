@@ -29,9 +29,9 @@ class Carousel extends Component {
 
     // reset carousel index if items have changed
     if (items !== prevProps.items) {
-      this.state = {
+      this.setState({
         currentIndex: 0,
-      };
+      });
     }
   }
 
@@ -96,7 +96,7 @@ class Carousel extends Component {
       </CarouselContainer>
     );
   }
-};
+}
 
 Carousel.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object),

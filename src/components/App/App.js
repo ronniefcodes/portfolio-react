@@ -53,8 +53,8 @@ class App extends Component {
         <Carousel items={projects} />
       </AppContainer>
     );
-  };
-};
+  }
+}
 
 App.propTypes = {
   contactMethods: PropTypes.arrayOf(PropTypes.object),
