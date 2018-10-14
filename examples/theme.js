@@ -20,7 +20,6 @@ const app = {
   backgroundColor: _COLORS.brown,
   backgroundImageUrl: '/media/code-mobile.jpg',
   fontFamily: _FONT_FAMILIES.base,
-  fontColor: _COLORS.black,
   smallDesktop: {
     backgroundImageUrl: '/media/code.jpg'
   },
@@ -41,10 +40,6 @@ const fontFamilies = {
 };
 
 const headerContainer = {
-  position: 'absolute',
-  positionBottom: '0',
-  width: '100%',
-  padding: '0.5em 0 2.5em',
   background: `linear-gradient(
     179deg,
     rgba(255,255,255,0) 0%,
@@ -54,18 +49,7 @@ const headerContainer = {
     rgba(217,209,193,1) 69%,
     rgba(201,189,167,1) 100%)
   `,
-  textAlign: 'center',
-  zIndex: _ZINDICES.middle,
-  smallDesktop: {
-    positionRight: '0',
-    padding: '1% 5% 5% 1%',
-    textAlign: 'right',
-  },
   desktop: {
-    width: 'auto',
-    height: 'auto',
-    margin: '0 4% 4% 0',
-    padding: '1%',
     background: 'none',
   },
 };
@@ -74,15 +58,6 @@ const headers = {
   fontFamily: _FONT_FAMILIES.header,
   fontWeight: '500',
   letterSpacing: '0.05ch',
-  h1FontSize: '35px',
-  h1TextTransform: 'uppercase',
-  h3FontSize: '22px',
-  mobile: {
-    h1FontSize: '50px',
-  },
-  smallDesktop: {
-    h1FontSize: '40px',
-  },
 };
 
 const links = {
