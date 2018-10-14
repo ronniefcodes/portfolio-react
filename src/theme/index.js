@@ -9,10 +9,12 @@ const _ZINDICES = {
   top: 10,
 };
 
+// attributes for the app container
 const app = {
   fontColor: _COLORS.black,
 };
 
+// attributes for background elements
 const backgrounds = {
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
@@ -22,6 +24,7 @@ const backgrounds = {
   },
 };
 
+// attributes for buttons
 const buttons = {
   webkitAppearance: 'none',
   background: 'none',
@@ -32,12 +35,14 @@ const buttons = {
   padding: '0',
 };
 
+// attributes for carousel component
 const carousel = {
   height: '100%',
   backgroundHeight: '100%',
   backgroundWidth: '100%',
 };
 
+// attributes for carousel content elements
 const carouselContent = {
   position: 'absolute',
   positionLeft: '50%',
@@ -46,6 +51,7 @@ const carouselContent = {
   textAlign: 'center',
 };
 
+// attributes for carousel navigation buttons
 const carouselNavButtons = {
   position: 'absolute',
   positionTop: '50%',
@@ -72,18 +78,20 @@ const carouselNavButtons = {
 
 const fontFamilies = {};
 
+// attributes for header elements (h1)
 const headers = {
-  h1FontSize: '35px',
-  h1TextTransform: 'uppercase',
-  h3FontSize: '22px',
+  fontSize: '35px',
+  textTransform: 'uppercase',
+  margin: '.25em 0',
   mobile: {
-    h1FontSize: '50px',
+    fontSize: '50px',
   },
   smallDesktop: {
-    h1FontSize: '40px',
+    fontSize: '40px',
   },
 };
 
+// attributes for header container component
 const headerContainer = {
   position: 'absolute',
   positionBottom: '0',
@@ -104,6 +112,7 @@ const headerContainer = {
   },
 };
 
+// attributes for links
 const links = {
   fontColor: _COLORS.black,
   iconHeight: '40px',
@@ -112,6 +121,12 @@ const links = {
   iconBorder: `2px solid ${_COLORS.black}`,
   iconBorderRadius: '100%',
   iconTransition: '0.25s all',
+};
+
+// attributes for subheader elements (h2)
+const subheaders = {
+  fontSize: '22px',
+  margin: '.25em 0',
 };
 
 const theme = {
@@ -125,6 +140,7 @@ const theme = {
   headers,
   headerContainer,
   links,
+  subheaders,
 };
 
 export default theme;

@@ -14,9 +14,11 @@ function withGoogleFonts(WrappedComponent) {
   return (props) => {
     const { theme, } = props;
 
-    injectGlobal`
-      @import url(${`https://fonts.googleapis.com/css?family=${getFontFamilyParameter(theme.fontFamilies.googleFonts)}`});
-    `;
+    if (!!theme.fontFamilies) {
+      injectGlobal`
+        @import url(${`https://fonts.googleapis.com/css?family=${getFontFamilyParameter(theme.fontFamilies.googleFonts)}`});
+      `;
+    }
 
     return (<WrappedComponent {...props} />);
   };

@@ -70,12 +70,19 @@ const links = {
   }
 };
 
+const subheaders = {
+  fontFamily: _FONT_FAMILIES.header,
+  fontWeight: '500',
+  letterSpacing: '0.05ch',
+};
+
 const theme = {
   app,
   fontFamilies,
   headerContainer,
   headers,
   links,
+  subheaders,
 };
 
 export default theme;
