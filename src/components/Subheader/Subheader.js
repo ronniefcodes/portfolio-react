@@ -6,7 +6,8 @@ const Subheader = styledComponents.h3`
   font-size: ${({ theme, }) => theme.subheaders.fontSize};
   font-weight: ${({ theme, }) => theme.subheaders.fontWeight};
   text-transform: ${({ theme, }) => theme.subheaders.h3TextTransform};
-  margin: 0.25em 0;
+  letter-spacing: ${({ theme, }) => theme.subheaders.letterSpacing};
+  margin: ${({ theme, }) => theme.subheaders.margin};
 
   ${({ theme, }) =>
     getAvailableBreakpointNames().map((breakpoint) =>

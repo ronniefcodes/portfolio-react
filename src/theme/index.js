@@ -82,6 +82,7 @@ const fontFamilies = {};
 const headers = {
   fontSize: '35px',
   textTransform: 'uppercase',
+  margin: '.25em 0',
   mobile: {
     fontSize: '50px',
   },
@@ -125,6 +126,7 @@ const links = {
 // attributes for subheader elements (h2)
 const subheaders = {
   fontSize: '22px',
+  margin: '.25em 0',
 };
 
 const theme = {

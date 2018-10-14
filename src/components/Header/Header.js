@@ -7,7 +7,7 @@ const Header = styledComponents.h1`
   font-weight: ${({ theme, }) => theme.headers.fontWeight};
   text-transform: ${({ theme, }) => theme.headers.textTransform};
   letter-spacing: ${({ theme, }) => theme.headers.letterSpacing};
-  margin: 0.25em 0;
+  margin: ${({ theme, }) => theme.subheaders.margin};
 
   ${({ theme, }) =>
     getAvailableBreakpointNames().map((breakpoint) =>
