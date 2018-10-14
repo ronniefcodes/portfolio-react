@@ -17,12 +17,8 @@ const _ZINDICES = {
 };
 
 const app = {
-  backgroundColor: _COLORS.brown,
-  backgroundImageUrl: '/media/code-mobile.jpg',
+  backgroundColor: _COLORS.white,
   fontFamily: _FONT_FAMILIES.base,
-  smallDesktop: {
-    backgroundImageUrl: '/media/code.jpg'
-  },
 };
 
 const fontFamilies = {

@@ -3,6 +3,7 @@ import media from 'Utils/media';
 import Button from 'Components/Button';
 
 const CarouselNavButton = styledComponents(Button)`
+  cursor: pointer;
   position: ${({ theme, }) => theme.carouselNavButtons.position};
   top: ${({ theme, }) => theme.carouselNavButtons.positionTop};
   transform: ${({ theme, }) => theme.carouselNavButtons.transform};

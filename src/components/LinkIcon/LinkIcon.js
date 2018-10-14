@@ -16,13 +16,6 @@ const StyledIcon = styledComponents.span`
   border-radius: ${({ theme, }) => theme.links.iconBorderRadius};
   transition: ${({ theme, }) => theme.links.iconTransition};
 
-  ${({ theme, }) => theme.links.onActive &&
-    `&:active, &:focus, &:hover {
-      background-color: ${theme.links.onActive.iconBackgroundColor};
-      border-color: ${theme.links.onActive.iconBorderColor};
-    };`
-  };
-
   svg {
     ${absolutelyCentred}
   }

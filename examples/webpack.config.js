@@ -21,7 +21,6 @@ module.exports = Object.assign({}, config, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, './index.html'),
-      title: 'Test App',
       inject: true,
     }),
   ],
