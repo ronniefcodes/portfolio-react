@@ -26,7 +26,7 @@ const backgrounds = {
 
 // attributes for buttons
 const buttons = {
-  webkitAppearance: 'none',
+  fontColor: _COLORS.black,
   background: 'none',
   border: 'none',
   borderRadius: '0',
