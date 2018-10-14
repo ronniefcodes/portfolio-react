@@ -1,6 +1,6 @@
 ## Description
 
-Dynamically generated portfolio application created using ReactJS.
+Customizable portfolio web application created using ReactJS.
 
 ## Getting Started
 
