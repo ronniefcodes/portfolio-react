@@ -1,7 +1,7 @@
 {
   "name": "portfolio-react",
   "version": "1.0.0",
-  "description": "Personal portfolio built in React",
+  "description": "Dynamically generated portfolio application built in React",
   "scripts": {
     "build": "webpack --colors --progress -p",
     "start": "webpack-dev-server --colors --progress --config=./examples/webpack.config.js",

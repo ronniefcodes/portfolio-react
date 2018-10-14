@@ -7,6 +7,8 @@ module.exports = {
 
   output: {
     filename: '[name].js',
+    library: 'portfolio',
+    libraryTarget: 'umd',
     path: path.resolve(__dirname, 'build'),
     publicPath: '/'
   },

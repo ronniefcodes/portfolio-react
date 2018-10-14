@@ -1,6 +1,6 @@
 ## Description
 
-Personal portfolio website created using ReactJS.
+Dynamically generated portfolio application created using ReactJS.
 
 ## Getting Started
 

@@ -4,4 +4,6 @@ const render = (...props) => {
   renderApp(...props);
 };
 
-export default render;
+export default {
+  render
+};
