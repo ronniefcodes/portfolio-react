@@ -16,3 +16,57 @@ export const generateThemeFromBase = (theme = {}) => {
 
   return generatedTheme;
 };
+
+const themeableProperties = {
+  position: 'position',
+  positionBottom: 'bottom',
+  positionLeft: 'left',
+  positionRight: 'right',
+  positionTop: 'top',
+  display: 'display',
+  height: 'height',
+  minHeight: 'min-height',
+  maxHeight: 'max-height',
+  width: 'width',
+  minWidth: 'min-width',
+  maxWidth: 'max-width',
+  margin: 'margin',
+  padding: 'padding',
+  fontColor: 'color',
+  fontFamily: 'font-family',
+  fontSize: 'font-size',
+  fontWeight: 'font-weight',
+  letterSpacing: 'letter-spacing',
+  textAlign: 'text-align',
+  textDecoration: 'text-decoration',
+  textTransform: 'text-transform',
+  background: 'background',
+  backgroundColor: 'background-color',
+  backgroundPosition: 'background-position',
+  backgroundRepeat: 'background-repeat',
+  backgroundSize: 'background-size',
+  border: 'border',
+  borderWidth: 'border-width',
+  borderRadius: 'border-radius',
+  boxShadow: 'box-shadow',
+  filter: 'filter',
+  transform: 'transform',
+  transition: 'transition',
+  opacity: 'opacity',
+  zIndex: 'z-index',
+};
+
+export const generateCssFromTheme = (themeElement, providedThemeProps) => {
+  if (!themeElement) return '';
+
+  const themedProperties = providedThemeProps || Object.keys(themeElement);
+
+  let styledAttributes = '';
+  themedProperties.forEach(key => {
+    if(themeableProperties[key] && themeElement[key]) {
+      styledAttributes += `${themeableProperties[key]}: ${themeElement[key]};`;
+    }
+  });
+
+  return styledAttributes;
+};

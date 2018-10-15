@@ -46,11 +46,22 @@ const carousel = {
 
 // attributes for carousel content elements
 const carouselContent = {
+  backgroundColor: _COLORS.white,
   position: 'absolute',
-  positionLeft: '50%',
-  positionTop: '50%',
-  transform: 'translate(-50%, -50%)',
+  positionLeft: '20%',
+  positionRight: '20%',
+  positionBottom: '5%',
+  minWidth: '50%',
+  padding: '1em 2em',
+  fontColor: _COLORS.black,
   textAlign: 'center',
+  transition: 'opacity: 0.5s',
+  zIndex: _ZINDICES.top,
+  smallDesktop: {
+    positionLeft: '50%',
+    positionRight: 'auto',
+    transform: 'translateX(-50%)',
+  },
 };
 
 // attributes for carousel navigation buttons
@@ -127,11 +138,9 @@ const links = {
   iconBorder: `2px solid ${_COLORS.white}`,
   iconBorderRadius: '100%',
   iconTransition: '0.25s all',
-  onActive: {
-    fontColor: _COLORS.black,
-    iconBackgroundColor: _COLORS.white,
-    iconBorderColor: _COLORS.black,
-  }
+  activeFontColor: _COLORS.black,
+  activeIconBackgroundColor: _COLORS.white,
+  activeIconBorderColor: _COLORS.black,
 };
 
 // attributes for subheader elements (h2)

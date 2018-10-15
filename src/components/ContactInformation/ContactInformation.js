@@ -2,10 +2,14 @@ import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { parseContactMethodUrl, } from 'Utils/url';
+import { generateCssFromTheme, } from 'Utils/theme';
 import Link from 'Components/Link';
 
 const ContactInformationContainer = styled.div`
-  margin: ${({ theme, }) => theme.contactInformation.margin};
+  ${({ theme, }) => generateCssFromTheme(theme.contactInformation, [
+    'margin',
+    'padding',
+  ])}
 
   a {
     display: inline-block;

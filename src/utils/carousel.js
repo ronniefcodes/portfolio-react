@@ -1,8 +1,9 @@
 export const getCarouselItemFromProject = (project) => {
   return {
     backgroundImages: project.images,
+    title: project.title,
+    subtitle: `${project.type}${project.type && project.year ? ', ' : ''}${project.year}`,
     description: project.description,
-    title: project.name,
-    subtitle: `${project.name}, ${project.year}`,
+    link: project.link,
   };
 };

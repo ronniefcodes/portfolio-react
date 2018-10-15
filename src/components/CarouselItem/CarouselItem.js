@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import media, { availableBreakpoints, } from 'Utils/media';
 import BackgroundContainer from 'Components/BackgroundContainer';
+import CarouselContent from 'Components/CarouselContent';
 
 const StyledCarouselItem = styled.div`
   height: 100%;
@@ -23,27 +24,38 @@ const CarouselBackground = styled(BackgroundContainer)`
   }
 `;
 
-const CarouselContent = styled.div`
-  position: ${({ theme, }) => theme.carouselContent.position};
-  bottom: ${({ theme, }) => theme.carouselContent.positionBottom};
-  left: ${({ theme, }) => theme.carouselContent.positionLeft};
-  right: ${({ theme, }) => theme.carouselContent.positionRight};
-  top: ${({ theme, }) => theme.carouselContent.positionTop};
-  transform: ${({ theme, }) => theme.carouselContent.translate};
-  text-align: ${({ theme, }) => theme.carouselContent.textAlign};
-`;
-
 class CarouselItem extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showCarouselContent: false,
+    };
+
+    this.handleCarouselItemClick = this.toggleCarouselContent.bind(this);
+  }
+
+  toggleCarouselContent() {
+    const { showCarouselContent, } = this.state;
+
+    this.setState({
+      showCarouselContent: !showCarouselContent,
+    });
+  }
+
   render() {
     const {
       backgroundImages,
-      body,
     } = this.props;
+    const { showCarouselContent, } = this.state;
 
     return (
-      <StyledCarouselItem>
+      <StyledCarouselItem onClick={this.handleCarouselItemClick}>
         {backgroundImages && (<CarouselBackground backgroundImages={backgroundImages} />)}
-        {body && (<CarouselContent dangerouslySetInnerHTML={{ __html: body, }} />)}
+        <CarouselContent
+          isVisible={showCarouselContent}
+          {...this.props}>
+        </CarouselContent>
       </StyledCarouselItem>
     )
   }
@@ -51,7 +63,6 @@ class CarouselItem extends Component {
 
 CarouselItem.propTypes = {
   backgroundImages: PropTypes.object,
-  body: PropTypes.string,
 };
 
 export default CarouselItem;
