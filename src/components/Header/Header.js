@@ -1,7 +1,7 @@
-import styledComponents from 'styled-components';
-import media, { getAvailableBreakpointNames, } from 'Utils/media';
+import styled from 'styled-components';
+import media, { availableBreakpoints, } from 'Utils/media';
 
-const Header = styledComponents.h1`
+const Header = styled.h1`
   font-family: ${({ theme, }) => theme.headers.fontFamily};
   font-size: ${({ theme, }) => theme.headers.fontSize};
   font-weight: ${({ theme, }) => theme.headers.fontWeight};
@@ -10,7 +10,7 @@ const Header = styledComponents.h1`
   margin: ${({ theme, }) => theme.headers.margin};
 
   ${({ theme, }) =>
-    getAvailableBreakpointNames().map((breakpoint) =>
+    availableBreakpoints.map((breakpoint) =>
       theme.headers[breakpoint] ? media.min[breakpoint]`
         font-size: ${theme.headers[breakpoint].h1FontSize};
       ` : null

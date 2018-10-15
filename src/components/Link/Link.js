@@ -1,9 +1,10 @@
 import React from 'react';
-import styledComponents from 'styled-components';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import LinkIcon from 'Components/LinkIcon';
 
-const StyledLink = styledComponents.a`
+const StyledLink = styled.a`
   color: ${({ theme, }) => theme.links.fontColor};
 
   ${({ theme, }) => theme.links.onActive &&
@@ -25,8 +26,15 @@ const Link = (props) => (
     target="_blank"
     rel="noopener"
     aria-label={props.ariaLabel}>{
-    props.icon ? (<LinkIcon name={props.icon} />) : props.name
+    props.icon ? (<LinkIcon name={props.icon} />) : props.title
   }</StyledLink>
 )
+
+Link.propTypes = {
+  title: PropTypes.string,
+  url: PropTypes.string,
+  ariaLabel: PropTypes.string,
+  icon: PropTypes.string,
+};
 
 export default Link;

@@ -1,13 +1,17 @@
 import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
-import styledComponents from 'styled-components';
+import styled from 'styled-components';
 import { getCarouselItemFromProject, } from 'Utils/carousel';
+import {
+  _EVENT_KEYCODES,
+  registerEventListener,
+} from 'Utils/events';
 
 import CarouselItem from 'Components/CarouselItem';
 import CarouselNavButton from 'Components/CarouselNavButton';
 import Icon from 'Components/Icon';
 
-const CarouselContainer = styledComponents.div`
+const CarouselContainer = styled.div`
   position: relative;
   height: ${({ theme, }) => theme.carousel.height};
 `;
@@ -24,15 +28,39 @@ class Carousel extends Component {
     this.onCarouselNextClick = this.handleCarouselNext.bind(this);
   }
 
+  componentDidMount() {
+    this.enableKeyboardNavigation();
+  }
+
   componentDidUpdate(prevProps) {
     const { items, } = this.props;
 
     // reset carousel index if items have changed
     if (items !== prevProps.items) {
+
       this.setState({
         currentIndex: 0,
       });
     }
+  }
+
+  enableKeyboardNavigation() {
+    const { items, } = this.props;
+
+    registerEventListener(document, 'keydown', (ev) => {
+      if (items.length > 1) {
+        switch(ev.keyCode) {
+          case _EVENT_KEYCODES.LEFT:
+            this.onCarouselBackClick();
+            break;
+          case _EVENT_KEYCODES.RIGHT:
+            this.onCarouselNextClick();
+            break;
+          default:
+            break;
+        }
+      }
+    });
   }
 
   handleCarouselOnClick() {
@@ -97,6 +125,10 @@ class Carousel extends Component {
     );
   }
 }
+
+Carousel.defaultProps = {
+  items: [],
+};
 
 Carousel.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object),

@@ -6,5 +6,12 @@
     "eslint:recommended",
     "plugin:react/recommended"
   ],
+  "globals": {
+    "__dirname": true,
+    "document": true,
+    "module": true,
+    "require": true,
+    "window": true
+  },
   "parser": "babel-eslint"
 }

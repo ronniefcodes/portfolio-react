@@ -1,11 +1,11 @@
 import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
-import styledComponents from 'styled-components';
+import styled from 'styled-components';
 import { absolutelyCentred, } from 'Utils/mixins';
 
 const feather = require('feather-icons');
 
-const StyledIcon = styledComponents.span`
+const StyledIcon = styled.span`
   position: relative;
   display: inline-block;
   box-sizing: border-box;
