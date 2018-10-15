@@ -10,6 +10,7 @@ const themeableProperties = [
   'positionTop',
   'height',
   'width',
+  'margin',
   'padding',
   'textAlign',
   'textTransform',
