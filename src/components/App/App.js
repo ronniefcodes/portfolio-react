@@ -34,7 +34,7 @@ const AppBackground = styled(BackgroundContainer)`
   ${({ theme, }) =>
     availableBreakpoints.map(breakpoint =>
       theme.app[breakpoint] ? media.min[breakpoint]`
-        background-image: ${theme.app.backgroundImageUrl ? `url('${theme.app.backgroundImageUrl}')` : ''};
+        background-image: ${theme.app[breakpoint].backgroundImageUrl ? `url('${theme.app[breakpoint].backgroundImageUrl}')` : ''};
       ` : null
     )
   }
