@@ -41,13 +41,18 @@ const headerContainer = {
   positionRight: 'auto',
   transform: 'translate(-50%, -50%)',
   padding: '0',
+  width: '100%',
   smallDesktop: {
     width: 'auto',
     height: 'auto',
-    positionBottom: 'auto',
-    positionRight: 'auto',
     textAlign: 'center',
+    margin: '0',
+    padding: '0',
   },
+  desktop: {
+    margin: '0',
+    padding: '0',
+  }
 };
 
 const headers = {

@@ -1,15 +1,22 @@
 import styled from 'styled-components';
 import media from 'Utils/media';
+import { generateCssFromTheme, } from 'Utils/theme';
 import Button from 'Components/Button';
 
+const themeableProperties = [
+  'position',
+  'positionBottom',
+  'positionTop',
+  'margin',
+  'padding',
+  'fontColor',
+  'transform',
+  'zIndex',
+];
+
 const CarouselNavButton = styled(Button)`
+  ${({ theme, }) => generateCssFromTheme(theme.carouselNavButtons, themeableProperties)}
   cursor: pointer;
-  position: ${({ theme, }) => theme.carouselNavButtons.position};
-  top: ${({ theme, }) => theme.carouselNavButtons.positionTop};
-  transform: ${({ theme, }) => theme.carouselNavButtons.transform};
-  margin: ${({ theme, }) => theme.carouselNavButtons.margin};
-  padding: ${({ theme, }) => theme.carouselNavButtons.padding};
-  z-index: ${({ theme, }) => theme.carouselNavButtons.zIndex};
 
   ${({ action, theme, }) => theme.carouselNavButtons[action] && `
     left: ${theme.carouselNavButtons[action].positionLeft || ''};
