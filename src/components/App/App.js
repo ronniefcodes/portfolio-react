@@ -1,7 +1,7 @@
 import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
-import styledComponents from 'styled-components';
-import media, { getAvailableBreakpointNames, } from 'Utils/media';
+import styled from 'styled-components';
+import media, { availableBreakpoints, } from 'Utils/media';
 
 import BackgroundContainer from 'Components/BackgroundContainer';
 import Carousel from 'Components/Carousel';
@@ -10,7 +10,7 @@ import Header from 'Components/Header';
 import HeaderContainer from 'Components/HeaderContainer';
 import Subheader from 'Components/Subheader';
 
-const AppContainer = styledComponents(BackgroundContainer)`
+const AppContainer = styled.main`
   position: relative;
   display: block;
   height: 100vh;
@@ -20,13 +20,21 @@ const AppContainer = styledComponents(BackgroundContainer)`
   overflow: auto;
   font-family: ${({ theme, }) => theme.app.fontFamily};
   color: ${({ theme, }) => theme.app.fontColor};
+`;
+
+const AppBackground = styled(BackgroundContainer)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
   background-color: ${({ theme, }) => theme.app.backgroundColor};
-  background-image: ${({ theme, }) => `url(${theme.app.backgroundImageUrl})`};
+  background-image: ${({ theme, }) => theme.app.backgroundImageUrl ? `url('${theme.app.backgroundImageUrl}')` : ''};
 
   ${({ theme, }) =>
-    getAvailableBreakpointNames().map((breakpoint) =>
+    availableBreakpoints.map(breakpoint =>
       theme.app[breakpoint] ? media.min[breakpoint]`
-        background-image: url(${theme.app[breakpoint].backgroundImageUrl});
+        background-image: ${theme.app.backgroundImageUrl ? `url('${theme.app.backgroundImageUrl}')` : ''};
       ` : null
     )
   }
@@ -43,6 +51,7 @@ class App extends Component {
 
     return (
       <AppContainer>
+        <AppBackground />
         <HeaderContainer>
           <Header>{name}</Header>
           {title && (

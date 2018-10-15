@@ -11,7 +11,8 @@ const _ZINDICES = {
 
 // attributes for the app container
 const app = {
-  fontColor: _COLORS.black,
+  backgroundColor: _COLORS.black,
+  fontColor: _COLORS.white,
 };
 
 // attributes for background elements
@@ -19,6 +20,7 @@ const backgrounds = {
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
   backgroundPosition: '50%',
+  transition: 'background-image 0.25s',
   smallDesktop: {
     backgroundPosition: '0 50%',
   },
@@ -26,7 +28,7 @@ const backgrounds = {
 
 // attributes for buttons
 const buttons = {
-  fontColor: _COLORS.black,
+  fontColor: _COLORS.white,
   background: 'none',
   border: 'none',
   borderRadius: '0',
@@ -56,10 +58,10 @@ const carouselNavButtons = {
   position: 'absolute',
   positionTop: '50%',
   transform: 'translateY(-50%)',
-  fontColor: _COLORS.black,
-  fontColorMargin: '0.5em',
-  fontColorPadding: '0.5em',
-  fontColorZIndex: _ZINDICES.top,
+  fontColor: _COLORS.white,
+  margin: '0.5em',
+  padding: '0.5em',
+  zIndex: _ZINDICES.top,
   back: {
     positionLeft: '0',
   },
@@ -118,13 +120,18 @@ const headerContainer = {
 
 // attributes for links
 const links = {
-  fontColor: _COLORS.black,
+  fontColor: _COLORS.white,
   iconHeight: '40px',
   iconWidth: '40px',
   iconPadding: '5px',
-  iconBorder: `2px solid ${_COLORS.black}`,
+  iconBorder: `2px solid ${_COLORS.white}`,
   iconBorderRadius: '100%',
   iconTransition: '0.25s all',
+  onActive: {
+    fontColor: _COLORS.black,
+    iconBackgroundColor: _COLORS.white,
+    iconBorderColor: _COLORS.black,
+  }
 };
 
 // attributes for subheader elements (h2)

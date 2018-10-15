@@ -1,21 +1,21 @@
 import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
-import styledComponents from 'styled-components';
-import media, { getAvailableBreakpointNames, } from 'Utils/media';
+import styled from 'styled-components';
+import media, { availableBreakpoints, } from 'Utils/media';
 import BackgroundContainer from 'Components/BackgroundContainer';
 
-const StyledCarouselItem = styledComponents.div`
+const StyledCarouselItem = styled.div`
   height: 100%;
   width: 100%;
 `;
 
-const CarouselBackground = styledComponents(BackgroundContainer)`
+const CarouselBackground = styled(BackgroundContainer)`
   height: ${({ theme, }) => theme.carousel.backgroundHeight};
   width: ${({ theme, }) => theme.carousel.backgroundWidth};
   background-image: ${({ backgroundImages, }) => `url(${backgroundImages.mobile})`};
 
   ${({ backgroundImages, }) =>
-    getAvailableBreakpointNames().map((breakpoint) =>
+    availableBreakpoints.map((breakpoint) =>
       backgroundImages[breakpoint] ? media.min[breakpoint]`
         background-image: url(${backgroundImages[breakpoint]});
       ` : null
@@ -23,7 +23,7 @@ const CarouselBackground = styledComponents(BackgroundContainer)`
   }
 `;
 
-const CarouselContent = styledComponents.div`
+const CarouselContent = styled.div`
   position: ${({ theme, }) => theme.carouselContent.position};
   bottom: ${({ theme, }) => theme.carouselContent.positionBottom};
   left: ${({ theme, }) => theme.carouselContent.positionLeft};

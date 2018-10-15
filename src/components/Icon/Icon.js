@@ -1,10 +1,10 @@
 import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
-import styledComponents from 'styled-components';
+import styled from 'styled-components';
 
 const feather = require('feather-icons');
 
-const IconContainer = styledComponents.span`
+const IconContainer = styled.span`
   display: inline-block;
 `;
 

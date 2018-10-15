@@ -1,10 +1,10 @@
 import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
-import styledComponents from 'styled-components';
+import styled from 'styled-components';
 import { parseContactMethodUrl, } from 'Utils/url';
 import Link from 'Components/Link';
 
-const ContactInformationContainer = styledComponents.div`
+const ContactInformationContainer = styled.div`
   margin: ${({ theme, }) => theme.contactInformation.margin};
 
   a {
@@ -25,7 +25,7 @@ class ContactInformation extends Component {
 
     return (
       <ContactInformationContainer>
-        {contactMethods && contactMethods.map((contactMethod, i) => {
+        {contactMethods.map((contactMethod, i) => {
           const url = parseContactMethodUrl(contactMethod);
           return (<Link key={`contactMethod-${i}`} url={url} {...contactMethod} />)
         })}
@@ -33,6 +33,10 @@ class ContactInformation extends Component {
     )
   }
 }
+
+ContactInformation.defaultProps = {
+  contactMethods: [],
+};
 
 ContactInformation.propTypes = {
   contactMethods: PropTypes.arrayOf(PropTypes.object),

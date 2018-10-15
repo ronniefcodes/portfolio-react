@@ -35,7 +35,9 @@ breakpoints.map(({ name, width, } = {}) => {
   `;
 });
 
-export const getAvailableBreakpointNames = () => breakpoints.map(breakpoint => breakpoint.name);
+const getAvailableBreakpointNames = () => breakpoints.map(breakpoint => breakpoint.name);
+
+export const availableBreakpoints = getAvailableBreakpointNames();
 
 export default {
   max,

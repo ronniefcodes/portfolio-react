@@ -1,8 +1,8 @@
-import styledComponents from 'styled-components';
+import styled from 'styled-components';
 import media from 'Utils/media';
 import Button from 'Components/Button';
 
-const CarouselNavButton = styledComponents(Button)`
+const CarouselNavButton = styled(Button)`
   cursor: pointer;
   position: ${({ theme, }) => theme.carouselNavButtons.position};
   top: ${({ theme, }) => theme.carouselNavButtons.positionTop};

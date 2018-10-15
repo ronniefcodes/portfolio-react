@@ -10,15 +10,14 @@ const _FONT_FAMILIES = {
   base: '"Open Sans", Helvetica, Arial, sans-serif',
 };
 
-const _ZINDICES = {
-  bottom: 1,
-  middle: 5,
-  top: 10,
+const app = {
+  backgroundColor: _COLORS.black,
+  fontFamily: _FONT_FAMILIES.base,
+  fontColor: _COLORS.white,
 };
 
-const app = {
-  backgroundColor: _COLORS.white,
-  fontFamily: _FONT_FAMILIES.base,
+const backgrounds = {
+  filter: 'brightness(30%)',
 };
 
 const fontFamilies = {
@@ -36,17 +35,18 @@ const fontFamilies = {
 };
 
 const headerContainer = {
-  background: `linear-gradient(
-    179deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.0) 5%,
-    rgba(239,236,230,0.5) 28%,
-    rgba(229,224,214,0.8) 46%,
-    rgba(217,209,193,1) 69%,
-    rgba(201,189,167,1) 100%)
-  `,
-  desktop: {
-    background: 'none',
+  positionTop: '50%',
+  positionLeft: '50%',
+  positionBottom: 'auto',
+  positionRight: 'auto',
+  transform: 'translate(-50%, -50%)',
+  padding: '0',
+  smallDesktop: {
+    width: 'auto',
+    height: 'auto',
+    positionBottom: 'auto',
+    positionRight: 'auto',
+    textAlign: 'center',
   },
 };
 
@@ -56,32 +56,19 @@ const headers = {
   letterSpacing: '0.05ch',
 };
 
-const links = {
-  fontColor: _COLORS.blue,
-  iconHeight: '40px',
-  iconWidth: '40px',
-  iconPadding: '5px',
-  iconBorder: `2px solid ${_COLORS.blue}`,
-  iconBorderRadius: '100%',
-  iconTransition: '0.25s all',
-  onActive: {
-    fontColor: _COLORS.white,
-    iconBackgroundColor: _COLORS.blue,
-  }
-};
-
 const subheaders = {
-  fontFamily: _FONT_FAMILIES.header,
+  fontFamily: _FONT_FAMILIES.base,
+  fontSize: '16px',
   fontWeight: '500',
   letterSpacing: '0.05ch',
 };
 
 const theme = {
   app,
+  backgrounds,
   fontFamilies,
   headerContainer,
   headers,
-  links,
   subheaders,
 };
 
