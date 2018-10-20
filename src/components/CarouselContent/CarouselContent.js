@@ -5,6 +5,7 @@ import media, { availableBreakpoints, } from 'Utils/media';
 import { generateCssFromTheme, } from 'Utils/theme';
 
 const themeableProperties = [
+  'display',
   'position',
   'positionBottom',
   'positionLeft',

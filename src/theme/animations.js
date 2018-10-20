@@ -18,7 +18,7 @@ export const chevronDrawLineAndFold = {
         height: 0;
         transform: rotate(0deg);
      }
-     50% {
+     70% {
         height: ${length};
         transform: rotate(0deg);
      }
@@ -34,7 +34,7 @@ export const chevronDrawLineAndFold = {
         height: 0;
         transform: rotate(0deg);
      }
-     50% {
+     70% {
         height: ${length};
         transform: rotate(0deg);
      }

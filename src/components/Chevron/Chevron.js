@@ -25,6 +25,10 @@ const chevronBack = (theme) => `
 `;
 
 const StyledChevron = styled.div`
+  ${({ theme, }) => generateCssFromTheme(theme.chevrons, [
+    'height',
+  ])}
+
   &:active, &:focus, &:hover {
     ${({ theme, }) => `animation-name: ${theme.chevrons.activeAnimationName || bounce};`}
     ${({ theme, }) => `animation-duration: ${theme.chevrons.activeAnimationDuration};`}

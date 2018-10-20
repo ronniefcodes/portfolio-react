@@ -98,6 +98,7 @@ const chevrons = {
   armLength: '30px',
   armWidth: '2px',
   armRotationAngle: '22deg',
+  height: '60px',
   background: _COLORS.white,
 };
 
