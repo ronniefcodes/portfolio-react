@@ -9,7 +9,6 @@ import {
 
 import CarouselItem from 'Components/CarouselItem';
 import CarouselNavButton from 'Components/CarouselNavButton';
-import Icon from 'Components/Icon';
 
 const CarouselContainer = styled.div`
   position: relative;
@@ -108,14 +107,12 @@ class Carousel extends Component {
           type="button"
           onClick={this.onCarouselBackClick}
         >
-          <Icon name="chevron-left" height="30" width="30" />
         </CarouselNavButton>
         <CarouselNavButton
           action="next"
           type="button"
           onClick={this.onCarouselNextClick}
         >
-          <Icon name="chevron-right" height="30" width="30" />
         </CarouselNavButton>
         <CarouselItem
           onClick={this.handleCarouselOnClick}

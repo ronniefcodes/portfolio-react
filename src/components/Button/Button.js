@@ -4,6 +4,8 @@ import { generateCssFromTheme, } from 'Utils/theme';
 const Button = styled.button`
   -webkit-appearance: none;
   box-sizing: border-box;
+  cursor: pointer;
+  
   ${({ theme, }) => generateCssFromTheme(theme.buttons, [
       'height',
       'width',

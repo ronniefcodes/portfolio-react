@@ -89,6 +89,19 @@ const carouselNavButtons = {
   },
 };
 
+const chevrons = {
+  activeAnimationDuration: '.5s',
+  activeAnimationTimingFunction: 'ease-in-out',
+  activeAnimationIterationCount: '2',
+  armAnimationDuration: '.8s',
+  armAnimationTimingFunction: 'ease-in-out',
+  armLength: '30px',
+  armWidth: '2px',
+  armRotationAngle: '22deg',
+  height: '60px',
+  background: _COLORS.white,
+};
+
 const contactInformation = {
   margin: '1.5em 0 0',
 };
@@ -157,6 +170,7 @@ const theme = {
   carouselContent,
   carouselNavButtons,
   contactInformation,
+  chevrons,
   fontFamilies,
   headers,
   headerContainer,
