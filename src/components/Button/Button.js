@@ -10,6 +10,7 @@ const Button = styled.button`
       'margin',
       'padding',
       'fontColor',
+      'fontFamily',
       'background',
       'boxShadow',
       'border',

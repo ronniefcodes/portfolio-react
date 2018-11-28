@@ -7,6 +7,7 @@
     "prepack": "npm run build",
     "release": "npm publish --access public",
     "start": "webpack-dev-server --colors --progress --config=./examples/webpack.config.js",
+    "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ronnie Cheung",
@@ -15,6 +16,8 @@
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-info": "^4.0.9",
+    "@storybook/react": "^4.0.9",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "eslint": "^5.7.0",
