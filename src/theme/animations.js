@@ -11,6 +11,7 @@ export const bounce = keyframes`
     transform: scale(1);
   }
 `;
+
 export const chevronDrawLineAndFold = {
   tiltForward: ({ length, rotation, } = {}) => keyframes`
      0% {
