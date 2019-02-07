@@ -1,7 +1,7 @@
 import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { getCarouselItemFromProject, } from 'Utils/carousel';
+import { getCarouselItemFromProject, handleCarouselPreload, } from 'Utils/carousel';
 import {
   _EVENT_KEYCODES,
   registerEventListener,
@@ -28,18 +28,29 @@ class Carousel extends Component {
   }
 
   componentDidMount() {
+    const { items, preload, } = this.props;
+
+    if (preload) {
+      handleCarouselPreload(items, 0);
+    }
+
     this.enableKeyboardNavigation();
   }
 
-  componentDidUpdate(prevProps) {
-    const { items, } = this.props;
+  componentDidUpdate(prevProps, prevState) {
+    const { items, preload, } = this.props;
+    const { currentIndex, } = this.state;
 
     // reset carousel index if items have changed
     if (items !== prevProps.items) {
-
       this.setState({
         currentIndex: 0,
       });
+    }
+
+    // handle preload if required on currentIndex change
+    if (preload && currentIndex !== prevState.currentIndex) {
+      handleCarouselPreload(items, currentIndex);
     }
   }
 
@@ -78,9 +89,8 @@ class Carousel extends Component {
     const { currentIndex, } = this.state;
 
     // increase current index unless the current index is already the highest (in which case, reset to 0)
-    this.setState({
-      currentIndex: currentIndex === items.length - 1 ? 0 : currentIndex + 1,
-    });
+    const updatedIndex = currentIndex === items.length - 1 ? 0 : currentIndex + 1;
+    this.setState({ currentIndex: updatedIndex, });
   }
 
   handleCarouselBack() {
@@ -88,9 +98,8 @@ class Carousel extends Component {
     const { currentIndex, } = this.state;
 
     // decrease current index unless index is currently 0 (in which case, set to highest)
-    this.setState({
-      currentIndex: currentIndex === 0 ? items.length - 1 : currentIndex - 1,
-    });
+    const updatedIndex = currentIndex === 0 ? items.length - 1 : currentIndex - 1;
+    this.setState({ currentIndex: updatedIndex, });
   }
 
   render() {
