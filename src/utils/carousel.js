@@ -9,7 +9,6 @@ export const getCarouselItemFromProject = (project) => {
 };
 
 const preloadProjectImages = (project) => {
-  console.log('preloading', project);
   if (project && project.images) {
     Object.values(project.images).forEach(imageUrl => {
       const img = new Image();

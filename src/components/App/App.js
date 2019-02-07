@@ -45,6 +45,7 @@ class App extends Component {
     const {
       contactMethods,
       name,
+      preloadCarouselContent,
       projects,
       title,
     } = this.props;
@@ -59,7 +60,7 @@ class App extends Component {
           )}
           <ContactInformation contactMethods={contactMethods}/>
         </HeaderContainer>
-        <Carousel items={projects} preload="true" />
+        <Carousel items={projects} preload={preloadCarouselContent} />
       </AppContainer>
     );
   }
@@ -68,6 +69,7 @@ class App extends Component {
 App.propTypes = {
   contactMethods: PropTypes.arrayOf(PropTypes.object),
   name: PropTypes.string,
+  preloadCarouselContent: PropTypes.bool,
   projects: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string,
 };
