@@ -52,6 +52,7 @@ const themeableProperties = {
   filter: 'filter',
   transform: 'transform',
   transition: 'transition',
+  animation: 'animation',
   animationDuration: 'animation-duration',
   animationTimingFunction: 'animation-timing-function',
   opacity: 'opacity',

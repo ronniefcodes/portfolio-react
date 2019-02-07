@@ -18,6 +18,7 @@ const themeableProperties = [
   'fontColor',
   'textAlign',
   'backgroundColor',
+  'animation',
   'transform',
   'transition',
   'zIndex',
