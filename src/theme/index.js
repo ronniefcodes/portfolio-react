@@ -55,13 +55,15 @@ const carouselContent = {
   padding: '1em 2em',
   fontColor: _COLORS.black,
   textAlign: 'center',
-  transition: 'opacity: 0.5s',
+  transition: 'opacity 0.5s',
+  opacity: 0,
   zIndex: _ZINDICES.top,
   smallDesktop: {
     positionLeft: '50%',
     positionRight: 'auto',
     transform: 'translateX(-50%)',
   },
+  visibleOpacity: 1,
 };
 
 // attributes for carousel navigation buttons

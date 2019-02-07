@@ -18,6 +18,7 @@ export const generateThemeFromBase = (theme = {}) => {
 };
 
 const themeableProperties = {
+  content: '',
   position: 'position',
   positionBottom: 'bottom',
   positionLeft: 'left',
@@ -66,7 +67,7 @@ export const generateCssFromTheme = (themeElement, providedThemeProps) => {
 
   let styledAttributes = '';
   themedProperties.forEach(key => {
-    if(themeableProperties[key] && themeElement[key]) {
+    if(themeableProperties[key] && themeElement[key] != null) {
       styledAttributes += `${themeableProperties[key]}: ${themeElement[key]};`;
     }
   });

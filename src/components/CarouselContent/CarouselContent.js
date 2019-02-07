@@ -18,9 +18,11 @@ const themeableProperties = [
   'fontColor',
   'textAlign',
   'backgroundColor',
+  'boxShadow',
   'animation',
   'transform',
   'transition',
+  'opacity',
   'zIndex',
 ];
 
@@ -35,9 +37,17 @@ const StyledContainer = styled.div`
     )
   }
 
-  opacity: 0;
-  ${({ isVisible, }) => isVisible ? `
-    opacity: 1;
+  ${({ theme, }) => theme.carouselContent.after ? generateCssFromTheme(theme.carouselContent.after) : ''}
+
+  ${({ isVisible, theme, }) => isVisible ? `
+    animation: ${theme.carouselContent.visibleAnimation || ''};
+    animation-name: ${theme.carouselContent.visibleAnimationName || ''};
+    animation-duration: ${theme.carouselContent.visibleAnimationDuration || ''};
+    animation-timing-function: ${theme.carouselContent.visibleAnimationTimingFunction || ''};
+    animation-iteration-count: ${theme.carouselContent.visibleAnimationIterationCount || ''};
+    boxShadow: ${theme.carouselContent.visibleBoxShadow || ''};
+    opacity: ${theme.carouselContent.visibleOpacity || ''};
+    outline: ${theme.carouselContent.visibleOutline || ''};
   ` : ''}
 `;
 

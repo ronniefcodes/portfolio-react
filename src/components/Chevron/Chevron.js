@@ -34,7 +34,7 @@ const StyledChevron = styled.div`
     ${({ theme, }) => `animation-duration: ${theme.chevrons.activeAnimationDuration};`}
     ${({ theme, }) => `animation-timing-function: ${theme.chevrons.activeAnimationTimingFunction};`}
     ${({ theme, }) => `animation-iteration-count: ${theme.chevrons.activeAnimationIterationCount};`}
-    ${({ theme, }) => `outline: ${theme.chevrons.activeBoxShadow};`}
+    ${({ theme, }) => `box-shadow: ${theme.chevrons.activeBoxShadow};`}
     ${({ theme, }) => `outline: ${theme.chevrons.activeOutline};`}
   }
 `;
