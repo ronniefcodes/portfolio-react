@@ -20,6 +20,15 @@ const backgrounds = {
   filter: 'brightness(30%)',
 };
 
+const chevrons = {
+  activeOutline: 'none',
+  activeArmBoxShadow: '1px 1px 1px 1px red',
+};
+const carouselNavButtons = {
+  activeOutline: 'none',
+};
+
+
 const fontFamilies = {
   googleFonts: [{
     name: 'Montserrat',
@@ -71,6 +80,8 @@ const subheaders = {
 const theme = {
   app,
   backgrounds,
+  chevrons,
+  carouselNavButtons,
   fontFamilies,
   headerContainer,
   headers,

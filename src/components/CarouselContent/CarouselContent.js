@@ -5,8 +5,8 @@ import media, { availableBreakpoints, } from 'Utils/media';
 import { generateCssFromTheme, } from 'Utils/theme';
 
 import CarouselContentBody from 'Components/CarouselContentBody';
-import CarouselContentHeader from 'Components/CarouselContentHeader';
-import CarouselContentSubheader from 'Components/CarouselContentSubheader';
+import CarouselContentTitle from 'Components/CarouselContentTitle';
+import CarouselContentSubtitle from 'Components/CarouselContentSubtitle';
 
 const themeableProperties = [
   'display',
@@ -71,8 +71,8 @@ const Link = (props) => {
 
   return (
     <StyledContainer isVisible={isVisible}>
-      <CarouselContentHeader>{title}</CarouselContentHeader>
-      <CarouselContentSubheader>{subtitle}</CarouselContentSubheader>
+      <CarouselContentTitle>{title}</CarouselContentTitle>
+      <CarouselContentSubtitle>{subtitle}</CarouselContentSubtitle>
       <CarouselContentBody>{description}</CarouselContentBody>
     </StyledContainer>
   );

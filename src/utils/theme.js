@@ -38,6 +38,7 @@ const themeableProperties = {
   fontSize: 'font-size',
   fontWeight: 'font-weight',
   letterSpacing: 'letter-spacing',
+  lineHeight: 'line-height',
   textAlign: 'text-align',
   textDecoration: 'text-decoration',
   textTransform: 'text-transform',

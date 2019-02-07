@@ -8,18 +8,19 @@ const themeableProperties = [
   'fontSize',
   'fontWeight',
   'letterSpacing',
+  'lineHeight',
   'textDecoration',
   'textTransform',
   'margin',
 ];
 
 const CarouselContentBody = styled.p`
-  ${({ theme, }) => generateCssFromTheme(theme.headers, themeableProperties)}
+  ${({ theme, }) => generateCssFromTheme(theme.carouselContentBody, themeableProperties)}
 
   ${({ theme, }) =>
     availableBreakpoints.map((breakpoint) =>
-      theme.headers[breakpoint] && media.min[breakpoint]`
-        ${generateCssFromTheme(theme.headers[breakpoint], themeableProperties)}
+      theme.carouselContentBody[breakpoint] && media.min[breakpoint]`
+        ${generateCssFromTheme(theme.carouselContentBody[breakpoint], themeableProperties)}
       `
     )
   }

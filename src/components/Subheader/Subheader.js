@@ -8,6 +8,7 @@ const themeableProperties = [
   'fontSize',
   'fontWeight',
   'letterSpacing',
+  'lineHeight',
   'textDecoration',
   'textTransform',
   'margin',

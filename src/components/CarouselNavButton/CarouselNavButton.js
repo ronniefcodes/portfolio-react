@@ -29,6 +29,10 @@ const StyledNavButton = styled(Button)`
     left: ${theme.carouselNavButtons.smallDesktop[action].positionLeft || ''};
     right: ${theme.carouselNavButtons.smallDesktop[action].positionRight || ''};
   `}
+
+  &:active, &:focus, &:hover {
+    ${({ theme, }) => `outline: ${ theme.carouselNavButtons.activeOutline}`}
+  }
 `
 
 const CarouselNavButton = (props) => {

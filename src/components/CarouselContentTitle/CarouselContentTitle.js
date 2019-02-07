@@ -8,21 +8,22 @@ const themeableProperties = [
   'fontSize',
   'fontWeight',
   'letterSpacing',
+  'lineHeight',
   'textDecoration',
   'textTransform',
   'margin',
 ];
 
-const CarouselContentSubheader = styled.h3`
-  ${({ theme, }) => generateCssFromTheme(theme.headers, themeableProperties)}
+const CarouselContentTitle = styled.h2`
+  ${({ theme, }) => generateCssFromTheme(theme.carouselContentTitles, themeableProperties)}
 
   ${({ theme, }) =>
     availableBreakpoints.map((breakpoint) =>
-      theme.headers[breakpoint] && media.min[breakpoint]`
-        ${generateCssFromTheme(theme.headers[breakpoint], themeableProperties)}
+      theme.carouselContentTitles[breakpoint] && media.min[breakpoint]`
+        ${generateCssFromTheme(theme.carouselContentTitles[breakpoint], themeableProperties)}
       `
     )
   }
 `;
 
-export default CarouselContentSubheader;
+export default CarouselContentTitle;
