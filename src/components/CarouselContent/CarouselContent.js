@@ -4,6 +4,10 @@ import styled from 'styled-components';
 import media, { availableBreakpoints, } from 'Utils/media';
 import { generateCssFromTheme, } from 'Utils/theme';
 
+import CarouselContentBody from 'Components/CarouselContentBody';
+import CarouselContentHeader from 'Components/CarouselContentHeader';
+import CarouselContentSubheader from 'Components/CarouselContentSubheader';
+
 const themeableProperties = [
   'display',
   'position',
@@ -37,7 +41,11 @@ const StyledContainer = styled.div`
     )
   }
 
-  ${({ theme, }) => theme.carouselContent.after ? generateCssFromTheme(theme.carouselContent.after) : ''}
+  ${({ theme, }) => theme.carouselContent.after ? `
+    &:after {
+      ${generateCssFromTheme(theme.carouselContent.after)}
+    }
+  ` : ''}
 
   ${({ isVisible, theme, }) => isVisible ? `
     animation: ${theme.carouselContent.visibleAnimation || ''};
@@ -45,6 +53,7 @@ const StyledContainer = styled.div`
     animation-duration: ${theme.carouselContent.visibleAnimationDuration || ''};
     animation-timing-function: ${theme.carouselContent.visibleAnimationTimingFunction || ''};
     animation-iteration-count: ${theme.carouselContent.visibleAnimationIterationCount || ''};
+    animation-fill-mode: ${theme.carouselContent.visibleAnimationFillMode || ''};
     boxShadow: ${theme.carouselContent.visibleBoxShadow || ''};
     opacity: ${theme.carouselContent.visibleOpacity || ''};
     outline: ${theme.carouselContent.visibleOutline || ''};
@@ -62,9 +71,9 @@ const Link = (props) => {
 
   return (
     <StyledContainer isVisible={isVisible}>
-      <h2>{title}</h2>
-      <h4>{subtitle}</h4>
-      <p>{description}</p>
+      <CarouselContentHeader>{title}</CarouselContentHeader>
+      <CarouselContentSubheader>{subtitle}</CarouselContentSubheader>
+      <CarouselContentBody>{description}</CarouselContentBody>
     </StyledContainer>
   );
 }
