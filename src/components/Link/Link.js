@@ -10,6 +10,7 @@ const themeableProperties = [
   'fontColor',
   'fontFamily',
   'fontWeight',
+  'lineHeight',
   'textAlign',
   'textTransform',
   'textDecoration',

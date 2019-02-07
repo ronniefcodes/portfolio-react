@@ -14,16 +14,16 @@ const themeableProperties = [
   'margin',
 ];
 
-const Subheader = styled.h3`
-  ${({ theme, }) => generateCssFromTheme(theme.subheaders, themeableProperties)}
+const CarouselContentBody = styled.p`
+  ${({ theme, }) => generateCssFromTheme(theme.carouselContentBody, themeableProperties)}
 
   ${({ theme, }) =>
     availableBreakpoints.map((breakpoint) =>
-      theme.subheaders[breakpoint] && media.min[breakpoint]`
-        ${generateCssFromTheme(theme.subheaders[breakpoint], themeableProperties)}
+      theme.carouselContentBody[breakpoint] && media.min[breakpoint]`
+        ${generateCssFromTheme(theme.carouselContentBody[breakpoint], themeableProperties)}
       `
     )
   }
 `;
 
-export default Subheader;
+export default CarouselContentBody;

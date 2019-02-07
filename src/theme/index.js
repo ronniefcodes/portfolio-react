@@ -31,10 +31,10 @@ const buttons = {
   fontColor: _COLORS.white,
   background: 'none',
   border: 'none',
-  borderRadius: '0',
+  borderRadius: 0,
   boxShadow: 'none',
-  margin: '0',
-  padding: '0',
+  margin: 0,
+  padding: 0,
 };
 
 // attributes for carousel component
@@ -58,12 +58,26 @@ const carouselContent = {
   transition: 'opacity 0.5s',
   opacity: 0,
   zIndex: _ZINDICES.top,
+  visibleOpacity: 1,
   smallDesktop: {
     positionLeft: '50%',
     positionRight: 'auto',
     transform: 'translateX(-50%)',
   },
-  visibleOpacity: 1,
+};
+
+// attributes for carousel content titles
+const carouselContentTitles = {
+  margin: 0,
+};
+
+// attributes for carousel content subtitles
+const carouselContentSubtitles = {
+  margin: 0,
+};
+
+// attributes for carousel content body copy
+const carouselContentBody = {
 };
 
 // attributes for carousel navigation buttons
@@ -75,11 +89,12 @@ const carouselNavButtons = {
   margin: '0.5em',
   padding: '0.5em',
   zIndex: _ZINDICES.top,
+  activeOutline: 'none',
   back: {
-    positionLeft: '0',
+    positionLeft: 0,
   },
   next: {
-    positionRight: '0',
+    positionRight: 0,
   },
   smallDesktop: {
     back: {
@@ -95,6 +110,7 @@ const chevrons = {
   activeAnimationDuration: '.5s',
   activeAnimationTimingFunction: 'ease-in-out',
   activeAnimationIterationCount: '2',
+  armActiveBoxShadow: `0 0 3px 0 ${_COLORS.white}`,
   armAnimationDuration: '.8s',
   armAnimationTimingFunction: 'ease-in-out',
   armLength: '30px',
@@ -126,13 +142,13 @@ const headers = {
 // attributes for header container component
 const headerContainer = {
   position: 'absolute',
-  positionBottom: '0',
+  positionBottom: 0,
   width: '100%',
   padding: '0.5em 0 2.5em',
   textAlign: 'center',
   zIndex: _ZINDICES.middle,
   smallDesktop: {
-    positionRight: '0',
+    positionRight: 0,
     padding: '1% 5% 5% 1%',
     textAlign: 'right',
   },
@@ -170,6 +186,9 @@ const theme = {
   buttons,
   carousel,
   carouselContent,
+  carouselContentTitles,
+  carouselContentSubtitles,
+  carouselContentBody,
   carouselNavButtons,
   contactInformation,
   chevrons,

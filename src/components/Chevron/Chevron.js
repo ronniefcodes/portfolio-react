@@ -24,30 +24,18 @@ const chevronBack = (theme) => `
   })};
 `;
 
-const StyledChevron = styled.div`
-  ${({ theme, }) => generateCssFromTheme(theme.chevrons, [
-    'height',
-  ])}
-
-  &:active, &:focus, &:hover {
-    ${({ theme, }) => `animation-name: ${theme.chevrons.activeAnimationName || bounce};`}
-    ${({ theme, }) => `animation-duration: ${theme.chevrons.activeAnimationDuration};`}
-    ${({ theme, }) => `animation-timing-function: ${theme.chevrons.activeAnimationTimingFunction};`}
-    ${({ theme, }) => `animation-iteration-count: ${theme.chevrons.activeAnimationIterationCount};`}
-    ${({ theme, }) => `box-shadow: ${theme.chevrons.activeBoxShadow};`}
-    ${({ theme, }) => `outline: ${theme.chevrons.activeOutline};`}
-  }
-`;
-
 const ChevronArm = styled.div`
   ${({ direction, theme, }) => `margin-${direction}: ${calculateRotationOffset(theme.chevrons)}px;`}
   ${({ theme, }) => generateCssFromTheme(theme.chevrons, [
     'background',
   ])}
-  ${({ theme, }) => `animation-duration: ${theme.chevrons.armAnimationDuration}`};
-  ${({ theme, }) => `animation-timing-function: ${theme.chevrons.armAnimationTimingFunction}`};
-  ${({ theme, }) => `height: ${theme.chevrons.armLength}`};
-  ${({ theme, }) => `width: ${theme.chevrons.armWidth}`};
+
+  ${({ theme, }) => `
+    animation-duration: ${theme.chevrons.armAnimationDuration};
+    animation-timing-function: ${theme.chevrons.armAnimationTimingFunction};
+    height: ${theme.chevrons.armLength};
+    width: ${theme.chevrons.armWidth};
+  `};
 `;
 
 const TopChevronArm = styled(ChevronArm)`
@@ -64,6 +52,27 @@ const BottomChevronArm = styled(ChevronArm)`
   margin-top: -1px;
   border-bottom-left-radius: 100%;
   border-bottom-right-radius: 100%;
+`;
+
+const StyledChevron = styled.div`
+  ${({ theme, }) => generateCssFromTheme(theme.chevrons, [
+    'height',
+  ])}
+
+  &:active, 
+  &:focus,
+  &:hover {
+    ${({ theme, }) => `
+      animation-name: ${theme.chevrons.activeAnimationName || bounce};
+      animation-duration: ${theme.chevrons.activeAnimationDuration};
+      animation-timing-function: ${theme.chevrons.activeAnimationTimingFunction};
+      animation-iteration-count: ${theme.chevrons.activeAnimationIterationCount};
+    `}
+
+    ${ChevronArm} {
+      ${({ theme, }) => `box-shadow: ${theme.chevrons.armActiveBoxShadow};`}
+    }
+  }
 `;
 
 const Chevron = (props) => {

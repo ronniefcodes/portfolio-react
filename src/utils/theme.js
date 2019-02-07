@@ -18,7 +18,7 @@ export const generateThemeFromBase = (theme = {}) => {
 };
 
 const themeableProperties = {
-  content: '',
+  content: 'content',
   position: 'position',
   positionBottom: 'bottom',
   positionLeft: 'left',
@@ -38,6 +38,7 @@ const themeableProperties = {
   fontSize: 'font-size',
   fontWeight: 'font-weight',
   letterSpacing: 'letter-spacing',
+  lineHeight: 'line-height',
   textAlign: 'text-align',
   textDecoration: 'text-decoration',
   textTransform: 'text-transform',
@@ -67,7 +68,7 @@ export const generateCssFromTheme = (themeElement, providedThemeProps) => {
 
   let styledAttributes = '';
   themedProperties.forEach(key => {
-    if(themeableProperties[key] && themeElement[key] != null) {
+    if (themeableProperties[key] && themeElement[key] != null) {
       styledAttributes += `${themeableProperties[key]}: ${themeElement[key]};`;
     }
   });
