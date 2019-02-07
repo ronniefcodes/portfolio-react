@@ -59,7 +59,7 @@ class App extends Component {
           )}
           <ContactInformation contactMethods={contactMethods}/>
         </HeaderContainer>
-        <Carousel items={projects} />
+        <Carousel items={projects} preload="true" />
       </AppContainer>
     );
   }

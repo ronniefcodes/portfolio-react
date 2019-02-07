@@ -11,7 +11,8 @@
     "document": true,
     "module": true,
     "require": true,
-    "window": true
+    "window": true,
+    "Image": true
   },
   "parser": "babel-eslint"
 }
