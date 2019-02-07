@@ -24,10 +24,10 @@ const chevrons = {
   activeOutline: 'none',
   activeArmBoxShadow: '1px 1px 1px 1px red',
 };
+
 const carouselNavButtons = {
   activeOutline: 'none',
 };
-
 
 const fontFamilies = {
   googleFonts: [{

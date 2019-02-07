@@ -41,11 +41,9 @@ const StyledContainer = styled.div`
     )
   }
 
-  ${({ theme, }) => theme.carouselContent.after ? `
-    &:after {
-      ${generateCssFromTheme(theme.carouselContent.after)}
-    }
-  ` : ''}
+  &:after {
+    ${({ theme, }) => generateCssFromTheme(theme.carouselContent.after)};
+  }
 
   ${({ isVisible, theme, }) => isVisible ? `
     animation: ${theme.carouselContent.visibleAnimation || ''};
@@ -61,7 +59,7 @@ const StyledContainer = styled.div`
 `;
 
 
-const Link = (props) => {
+const CarouselContent = (props) => {
   const {
     title,
     description,
@@ -78,7 +76,7 @@ const Link = (props) => {
   );
 }
 
-Link.propTypes = {
+CarouselContent.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   description: PropTypes.string,
@@ -87,4 +85,4 @@ Link.propTypes = {
   onClick: PropTypes.func,
 };
 
-export default Link;
+export default CarouselContent;
