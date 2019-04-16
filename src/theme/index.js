@@ -91,10 +91,10 @@ const carouselNavButtons = {
   zIndex: _ZINDICES.top,
   activeOutline: 'none',
   back: {
-    positionLeft: 0,
+    positionLeft: '0',
   },
   next: {
-    positionRight: 0,
+    positionRight: '0',
   },
   smallDesktop: {
     back: {
